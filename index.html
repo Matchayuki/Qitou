@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="给你一句开头、一条限制，你接着往下写。起头，一个私密、轻量的中文写作练习本。">
+<title>起头 · 写下去就好了</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='4.5' fill='%23F8F3E6' stroke='%232A2721' stroke-width='1.8'/%3E%3Cpath d='M11.5 15.2c5.4-2.5 12.6-2.7 17.8-.2-5.7 1.4-12.3 2.5-17.8 3.3z' fill='%232A2721'/%3E%3Ccircle cx='11.6' cy='15.3' r='3.2' fill='%23A33A2B'/%3E%3C/svg%3E">
+<style>
+/* 字体分工：中文界面字用等线（棱角、笔画平切）；题目与正文用思源宋体。
+   注意：等线必须排在 Segoe UI 前面。Windows 的"字体链接"会用 Segoe UI 去补中文，
+   一旦 Segoe UI 排第一，中文就会被转交给微软雅黑，后面写什么中文字体都不生效。 */
+:root{color-scheme:light;--bg:#EFE6D0;--paper:#F8F3E6;--text:#2A2721;--muted:#6E6858;--faint:#948C78;--line:#D9D0B8;--wash:#E5DCC5;--accent:#A33A2B;--accent-hover:#862F22;--accent-soft:rgba(163,58,43,.08);--button-text:#F8F3E6;--sans:"DengXian","Noto Sans SC","Source Han Sans SC","Segoe UI",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;--serif:"Noto Serif SC","Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",Georgia,SimSun,serif;--literary:"LiSu","隶书","STLiti","华文隶书","Noto Serif SC",serif;--mono:"DengXian","Noto Sans SC",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--radius:8px;--ease:cubic-bezier(.2,.7,.2,1)}
+:root[data-theme="night"]{color-scheme:dark;--bg:#1E1F1C;--paper:#262723;--text:#E9E8E2;--muted:#B4B3AB;--faint:#84857C;--line:#3B3C36;--wash:#32332D;--accent:#C86A55;--accent-hover:#D67B65;--accent-soft:rgba(200,106,85,.14);--button-text:#F5F4EE}
+*{box-sizing:border-box}html{scrollbar-gutter:stable}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button{cursor:pointer}button,a,input,textarea,select{-webkit-tap-highlight-color:transparent}button{color:inherit}button:disabled{opacity:.4;cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}button:active:not(:disabled){transform:translateY(1px)}::selection{background:var(--accent-soft)}[hidden]{display:none!important}h1,h2,h3,p{margin:0}button{transition:background .18s,color .18s,border-color .18s}a{color:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:fixed;top:12px;left:12px;z-index:10;transform:translateY(-160%);padding:10px 16px;background:var(--paper)}.skip:focus{transform:none}
+.shell{width:min(1184px,calc(100% - 112px));margin:auto}.header{height:108px;display:flex;align-items:center;border-bottom:1px solid var(--line);gap:40px}.brand{display:flex;align-items:center;gap:12px;background:none;border:0;padding:0;flex:none}.mark{width:36px;height:36px}.mark .g-line{stroke:var(--text);opacity:.14}.mark .g-box{stroke:var(--text);opacity:.26}.mark .brush{fill:var(--text)}.mark .dot{fill:var(--accent)}.wordmark{font-family:var(--serif);font-size:25px;letter-spacing:.12em;font-weight:700}.brand-en{font-family:var(--sans);font-size:11px;letter-spacing:.24em;color:var(--muted);align-self:flex-end;margin-bottom:5px}.nav{display:flex;gap:32px;margin:auto}.nav button{position:relative;background:none;border:0;font-size:15px;padding:17px 5px;color:var(--muted)}.nav button[aria-current="page"]{color:var(--text)}.nav button[aria-current="page"]:after{content:"";position:absolute;bottom:5px;left:5px;right:5px;height:2px;background:var(--accent)}.header-right{display:flex;align-items:center;gap:12px}.icon-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:transparent;display:grid;place-items:center}.icon-btn:hover{background:var(--wash)}.theme-symbol{display:block;width:16px;height:16px;border:1.5px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%)}.help-btn{border:0;background:none;color:var(--muted);font-size:14px;padding:8px}.help-btn:hover{color:var(--text)}
+.work-top{display:flex;align-items:center;justify-content:space-between;padding:34px 0 30px;gap:20px}.mode-switch{display:flex;gap:8px}.mode-switch button{background:transparent;border:0;padding:6px 14px;color:var(--muted);font-size:14px;border-radius:var(--radius)}.mode-switch button[aria-pressed="true"]{background:var(--text);color:var(--bg)}.subtle{color:var(--muted);font-size:13px}.work-note{font-family:var(--serif);font-size:15px;color:var(--muted);letter-spacing:.05em}.desk{display:grid;grid-template-columns:minmax(0, .8fr) minmax(0,1.55fr);gap:64px;align-items:start}.prompt-pane{padding:17px 0 0;min-width:0}.kind-line{display:flex;align-items:center;gap:10px;margin-bottom:25px;font-size:13px;color:var(--muted)}.kind-line:before{content:"";width:18px;height:2px;background:var(--accent)}.prompt-text{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.65vw,35px);line-height:1.9;letter-spacing:.025em;text-wrap:pretty;overflow-wrap:anywhere}.source{font-size:13px;line-height:1.9;color:var(--muted);margin-top:16px}.prompt-tools{display:flex;align-items:center;gap:12px;margin-top:23px;flex-wrap:wrap}.text-btn{background:none;border:0;padding:5px 0;font-size:14px;color:var(--muted);text-decoration:none}.text-btn:hover{color:var(--accent)}.quiet-btn{background:none;border:0;padding:5px 0;font-size:12px;color:var(--faint)}.quiet-btn:hover{color:var(--accent)}.prompt-tools .quiet-btn{margin-left:auto}.constraint-block{margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}.constraint-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.constraint-head h2{font-size:13px;font-weight:400;color:var(--muted)}.settings-summary{font-size:12px;color:var(--muted)}.rules{list-style:none;margin:0;padding:0;display:grid;gap:14px}.rules li{display:flex;gap:12px;align-items:baseline;font-family:var(--serif);font-size:18px;line-height:1.9;overflow-wrap:anywhere}.rules li span{flex:1}.rule-remove{border:1px solid var(--accent);background:var(--accent-soft);font-family:var(--sans);font-size:12px;line-height:1.5;color:var(--accent);padding:2px 9px;border-radius:999px;flex:none;white-space:nowrap;transition:background .18s,color .18s,border-color .18s}.rule-remove:hover{background:var(--accent);border-color:var(--accent);color:var(--button-text)}.rule-remove:hover{color:var(--accent)}.rule-bottom{display:flex;justify-content:flex-end;align-items:center;margin-top:19px;gap:14px;flex-wrap:wrap}.rule-bottom .config{margin-top:0}.config{position:relative}.config summary{list-style:none;cursor:pointer;font-size:13px;color:var(--muted);padding:5px}.config summary::-webkit-details-marker{display:none}.config summary:after{content:"⌄";margin-left:6px}.popover{position:absolute;top:38px;right:0;z-index:3;min-width:220px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 12px 30px #20221f12}.popover label{display:block;font-size:13px;margin-bottom:10px}.popover p{font-size:12px;color:var(--muted);margin-top:10px}.popover select{width:100%}
+.writing-pane{min-width:0}.paper{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.paper-top{padding:23px 30px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}.paper-title{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:400}.timer-wrap{display:flex;align-items:center;gap:10px}.timer-stop{font:13px var(--mono);color:var(--accent);background:var(--accent-soft);border:0;border-radius:5px;padding:5px 9px;min-height:32px}.timer-choices{display:flex;gap:6px}.timer-choices button{flex:1;border:1px solid var(--line);border-radius:6px;background:var(--bg);padding:8px 9px;font-size:13px;white-space:nowrap}.timer-choices button:hover{border-color:var(--accent)}.editor{display:block;width:100%;height:clamp(350px,49vh,650px);padding:29px 32px 24px;border:0;resize:vertical;color:var(--text);background:transparent;font-family:var(--serif);font-size:19px;line-height:2.1;letter-spacing:.025em;outline-offset:-5px!important;min-height:250px;overflow-wrap:break-word}.editor::placeholder{color:var(--faint);opacity:.68}.paper-bottom{margin:0 30px;padding:16px 0;display:flex;gap:12px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.count{font-variant-numeric:tabular-nums}.draft-status{font-size:12px}.draft-status.error{color:var(--accent)}.editor-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:21px}.editor-actions .end{display:flex;align-items:center;gap:20px}.btn{border:1px solid var(--line);background:transparent;border-radius:var(--radius);padding:10px 20px;font-size:14px;line-height:1.5;min-height:42px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px}.btn:hover{background:var(--wash);border-color:var(--muted)}.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--button-text)}.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}.save-btn{min-width:110px}.shortcut{font-size:12px;color:var(--faint)}kbd{font:11px var(--mono);padding:1px 3px;border:1px solid var(--line);border-radius:3px}.edit-banner{padding:12px 15px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;background:var(--accent-soft);border-radius:var(--radius);font-size:13px}.mobile-tools{display:none}.footer{display:flex;align-items:center;justify-content:space-between;margin:46px 0 28px;padding-top:19px;border-top:1px solid var(--line);gap:15px}.footer-motto{font-family:var(--serif);font-size:14px;color:var(--muted)}.footer .text-btn{font-size:12px}.privacy-note{font-size:12px;color:var(--muted)}
+.daily{max-width:960px;padding:12px 0 25px}.page-heading{font-family:var(--serif);font-size:34px;line-height:1.45;font-weight:400;letter-spacing:.025em}.daily-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:32px}.daily-heading p{font-size:13px;color:var(--muted)}.daily-item{border-bottom:1px solid var(--line);padding:0 0 10px;margin-bottom:10px}.daily-item summary{list-style:none;display:grid;grid-template-columns:68px 1fr 26px;gap:20px;align-items:baseline;cursor:pointer;padding:23px 10px 23px 0}.daily-item summary::-webkit-details-marker{display:none}.daily-kind{font-size:13px;color:var(--muted)}.daily-given{font-family:var(--serif);font-size:22px;line-height:1.9;font-weight:400;overflow-wrap:anywhere}.daily-chevron{font-size:19px;color:var(--muted);transition:transform .2s}.daily-item[open] .daily-chevron{transform:rotate(45deg)}.daily-item[open] .daily-given{font-size:29px}.daily-content{padding:0 46px 25px 88px}.daily-source{font-size:13px;color:var(--muted);margin-bottom:18px}.daily-rule{font-family:var(--serif);font-size:16px;border-left:2px solid var(--accent);padding-left:16px;margin-bottom:24px}.daily-foot{margin-top:22px;display:flex;justify-content:space-between;gap:20px;align-items:center}.daily-foot p{color:var(--muted);font-size:13px;max-width:640px}
+.book{padding:42px 0 16px}.book-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:35px}.book-commands{display:flex;align-items:center;gap:24px}.stats{display:flex;gap:44px;flex-wrap:wrap;padding:0 0 32px;border-bottom:1px solid var(--line)}.stat strong{display:block;font-family:var(--serif);font-size:28px;font-weight:400;font-variant-numeric:tabular-nums;line-height:1.4}.stat span{display:block;font-size:12px;color:var(--muted);margin-top:6px}.entry{display:grid;grid-template-columns:135px minmax(0,1fr);gap:32px;border-bottom:1px solid var(--line);padding:30px 0;scroll-margin-top:28px}.entry-date{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}.entry-date small{display:block;font-size:12px;margin-top:6px}.entry details{min-width:0}.entry summary{list-style:none;cursor:pointer}.entry summary::-webkit-details-marker{display:none}.entry-kind{font-size:12px;color:var(--muted);margin-bottom:9px}.entry-excerpt{font-family:var(--serif);font-size:20px;line-height:1.95;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;white-space:pre-wrap}.entry details[open] .entry-excerpt{display:none}.entry-body{font-family:var(--serif);font-size:19px;line-height:2.1;white-space:pre-wrap;overflow-wrap:anywhere}.entry-context{padding:16px 20px;background:var(--wash);margin:23px 0;border-radius:var(--radius);font-size:13px;line-height:1.9;color:var(--muted);overflow-wrap:anywhere}.entry-context p+p{margin-top:8px}.entry-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:19px}.entry-actions .danger{margin-left:auto}.entry-note{font-size:12px;color:var(--muted);margin-top:9px}.empty{max-width:500px;padding:72px 0 65px}.empty h2{font-family:var(--serif);font-weight:400;font-size:27px;margin-bottom:18px}.empty p{color:var(--muted);font-size:15px;line-height:1.9;margin-bottom:28px}.book-footer{display:flex;justify-content:space-between;margin-top:26px;gap:15px;font-size:12px;color:var(--muted)}.recall-highlight{background:var(--accent-soft);padding:30px 20px;border-radius:var(--radius)}
+dialog{color:var(--text);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:30px;width:min(500px,calc(100% - 32px));max-height:calc(100dvh - 40px);overflow:auto}dialog::backdrop{background:#14191350;backdrop-filter:blur(3px)}dialog h2{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.5}dialog p{font-size:14px;color:var(--muted);line-height:1.9;margin:15px 0}.dialog-head{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:26px}.close-btn{font-size:23px;background:none;border:0;padding:0 8px;line-height:1.5;color:var(--muted);min-height:40px;min-width:40px}.dialog-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;margin-top:27px}.discard-btn{margin-right:auto}.drawer{position:fixed;inset:0 0 0 auto;margin:0;width:min(510px,100%);max-width:none;height:100dvh;max-height:none;border-radius:0;border-width:0 0 0 1px;padding:34px;overscroll-behavior:contain}.manage-section{padding:25px 0;border-top:1px solid var(--line)}.manage-section h3{font-size:16px;font-weight:500}.manage-section>p{font-size:13px;margin:10px 0 20px}.form-field{margin:16px 0}.form-field label{display:block;font-size:13px;margin-bottom:7px}.input,.select{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);color:var(--text);padding:10px 12px;min-height:44px;font-size:14px}.input{width:100%;resize:vertical}.select{min-width:96px}.form-row{display:flex;gap:12px;align-items:center}.form-row .form-field{flex:1}.form-row .select{width:100%}.mine-list{margin-top:22px}.mine-row{display:flex;align-items:start;gap:15px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}.mine-row .mine-copy{flex:1;overflow-wrap:anywhere}.mine-row small{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.mine-row button{flex:none}.reset-actions{display:grid;gap:14px;margin-top:18px}.reset-actions .text-btn{text-align:left}.danger{color:var(--accent)}.help-list{list-style:none;margin:25px 0;padding:0;display:grid;gap:23px}.help-list b{display:block;font-size:15px;font-weight:500;margin-bottom:5px}.help-list p{margin:0;font-size:14px}.callout{padding:15px 18px;background:var(--wash);border-radius:var(--radius);font-size:13px;line-height:1.9;color:var(--muted)}.storage-warning{padding:12px 16px;margin-top:20px;border:1px solid var(--accent);border-radius:var(--radius);font-size:13px;color:var(--accent)}.toast{position:fixed;bottom:30px;left:50%;z-index:8;transform:translate(-50%,16px);background:var(--text);color:var(--bg);font-size:14px;padding:12px 22px;max-width:calc(100% - 32px);width:max-content;border-radius:var(--radius);opacity:0;pointer-events:none;transition:transform .22s,opacity .22s}.toast.show{transform:translate(-50%,0);opacity:1}.save-btn.saved{background:var(--text);border-color:var(--text);color:var(--bg)}
+@media(min-width:1500px){.shell{width:min(1240px,calc(100% - 160px))}.desk{gap:86px}.prompt-text{font-size:36px}.editor{height:55vh}}
+@media(max-width:1050px){.shell{width:calc(100% - 64px)}.desk{gap:34px;grid-template-columns:minmax(0,.8fr) minmax(0,1.35fr)}.prompt-text{font-size:27px}.paper-top{padding:20px 24px 0}.editor{padding:26px 24px}.paper-bottom{margin:0 24px}.brand-en{display:none}.shortcut{display:none}}
+@media(max-width:767px){html{scrollbar-gutter:auto}.shell{width:calc(100% - 36px)}.header{height:78px;gap:16px}.mark{width:28px;height:28px}.brand{gap:9px}.wordmark{font-size:22px}.nav{gap:19px;margin-left:auto;margin-right:0}.nav button{font-size:14px;padding:12px 3px}.header-right{gap:0}.help-btn{display:none}.icon-btn{height:34px;width:34px}.work-top{padding:22px 0 19px;gap:10px}.work-note{font-size:12px}.mode-switch{gap:4px}.mode-switch button{font-size:13px;padding:6px 11px}.desk{display:block}.prompt-pane{padding:3px 0 24px}.kind-line{font-size:12px;margin-bottom:11px}.prompt-text{font-size:24px;line-height:1.8}.source{margin-top:9px;font-size:12px}.prompt-tools{display:none}.constraint-block{margin-top:19px;padding-top:17px}.constraint-head{margin-bottom:8px}.constraint-head h2{font-size:12px}.rules{gap:8px}.rules li{font-size:16px;line-height:1.8}.rule-remove{padding:2px 8px;font-size:11px}.rule-bottom{margin-top:9px}.paper-top{padding:17px 19px 0}.paper-title{font-size:12px}.editor{font-size:18px;padding:23px 19px 20px;height:42dvh;min-height:245px;line-height:2}.paper-bottom{margin:0 19px;padding:13px 0}.draft-status{max-width:65%;text-align:right}.editor-actions{position:sticky;bottom:0;background:var(--bg);padding:14px 0 max(14px,env(safe-area-inset-bottom));margin-top:7px;z-index:2;gap:14px;border-top:1px solid transparent}.mobile-tools{display:block}.mobile-tools .popover{right:auto;left:0;top:auto;bottom:42px;min-width:230px;display:grid;gap:13px}.mobile-tools summary{font-size:14px;list-style:none;cursor:pointer;padding:10px 4px}.mobile-tools summary::-webkit-details-marker{display:none}.mobile-tools .text-btn{text-align:left}.desktop-share{display:none}.editor-actions .end{margin-left:auto}.save-btn{min-width:114px}.footer{margin:20px 0 23px;padding-top:18px;align-items:flex-start}.privacy-note{display:none}.footer-motto{font-size:13px}.daily{padding-top:9px}.page-heading{font-size:29px}.daily-heading{display:block;margin-bottom:17px}.daily-heading p{margin-top:10px}.daily-item summary{grid-template-columns:42px 1fr 17px;gap:12px;padding:20px 0}.daily-kind{font-size:12px}.daily-given{font-size:19px}.daily-item[open] .daily-given{font-size:23px}.daily-content{padding:0 0 19px 54px}.daily-source{font-size:12px}.daily-foot{display:block}.daily-foot .config{margin-top:16px;width:max-content}.daily-foot .popover{right:auto;left:0}.book{padding-top:28px}.book-head{align-items:flex-start;margin-bottom:26px}.book-commands{gap:13px;flex-direction:column;align-items:flex-end}.book-commands .text-btn{font-size:13px}.book-commands .btn{padding:8px 12px;min-height:36px;font-size:13px}.stats{gap:20px;justify-content:space-between;padding-bottom:25px}.stat strong{font-size:25px}.stat span{font-size:11px}.entry{grid-template-columns:1fr;gap:11px;padding:25px 0}.entry-date{display:flex;align-items:baseline;gap:12px;padding:0;font-size:12px}.entry-date small{display:inline;margin:0}.entry-kind{font-size:11px;margin-bottom:7px}.entry-excerpt{font-size:18px}.entry-body{font-size:18px}.entry-context{padding:14px 15px}.entry-actions{gap:19px}.entry-actions .text-btn{font-size:13px}.entry-note{font-size:11px}.empty{padding:49px 0}.empty h2{font-size:24px}.book-footer{display:block}.book-footer>span{display:block;margin-top:6px}.drawer{padding:26px 22px}.dialog-actions .btn{padding:10px 14px}.recall-highlight{padding:22px 15px}dialog{padding:25px}dialog h2{font-size:24px}}
+/* 字体分工：题目如手札，正文如书页，控件用清晰的黑体。 */
+body{transition:background-color .35s,color .35s;isolation:isolate}
+.header{height:80px}
+.wordmark,.prompt-text,.daily-given,.page-heading,.empty h2,dialog h2{font-family:var(--serif);font-weight:400}
+.wordmark{font-size:29px;letter-spacing:.1em}.brand-en{font-size:12px;letter-spacing:.2em}
+.prompt-text{font-size:clamp(29px,2.85vw,38px);line-height:1.8;letter-spacing:.045em}
+.source{font-family:var(--serif)}.work-note,.footer-motto{font-family:var(--sans)}
+.source{font-size:16px}.work-note{font-size:17px}.footer-motto{font-size:17px}
+.editor{font-size:20px;line-height:2.05;letter-spacing:.025em}
+.editor::placeholder{font-family:var(--serif);font-size:20px;opacity:1;color:var(--faint)}
+.paper{border-color:var(--line)}
+.btn,.paper,.popover,.input,.select{transition:background-color .3s,border-color .3s,color .3s}
+.page-heading{font-size:37px}.rules li{font-size:18px;line-height:1.95}
+.nav button{font-size:15px}.paper-title,.text-btn,.config summary{letter-spacing:.015em}
+.entry-body{font-size:19px;line-height:2.15}.daily-source{font-family:var(--serif);font-size:16px}
+:root[data-theme="night"] dialog::backdrop{background:#49342666}
+@media(max-width:767px){.header{height:74px}.wordmark{font-size:26px}.prompt-text{font-size:27px;line-height:1.75}.source{font-size:14px}.work-note{font-size:13px}.page-heading{font-size:31px}.editor,.editor::placeholder{font-size:19px}.footer-motto{font-size:15px}}
+@media(prefers-reduced-motion:no-preference){.prompt-text.reveal{animation:prompt-in .3s var(--ease)}.daily-content{animation:prompt-in .23s var(--ease)}.drawer[open]{animation:drawer-in .25s var(--ease)}@keyframes prompt-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@keyframes drawer-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* 应用给出的文学文本（题目句 / 出处 / 今日句 / 本子里的题句回显）走隶书；
+   用户自己写的正文、界面与限制保持原样。放在最后，覆盖前面媒体查询里的 --serif。 */
+.prompt-text,.source,.daily-given,.daily-source,.entry-context{font-family:var(--literary)}
+</style>
+</head>
+<body>
+<a class="skip" href="#body">跳到写作区</a>
+<div class="shell">
+  <header class="header">
+    <button class="brand" id="brandHome" aria-label="起头，返回写作">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect class="g-box" x="1.6" y="1.6" width="36.8" height="36.8" rx="4.5" fill="none" stroke-width="1.3"/><g class="g-line" stroke-width=".7" stroke-dasharray="2.4 3.4" fill="none"><path d="M20 3V37M3 20H37M7 7L33 33M33 7L7 33"/></g><path class="brush" d="M11.5 15.2c5.4-2.5 12.6-2.7 17.8-.2-5.7 1.4-12.3 2.5-17.8 3.3z"/><circle class="dot" cx="11.6" cy="15.3" r="2.9"/></svg>
+      <span class="wordmark">起头</span><span class="brand-en">QITOU</span>
+    </button>
+    <nav class="nav" aria-label="主导航"><button id="navWrite" aria-current="page">写</button><button id="navBook">本子</button></nav>
+    <div class="header-right"><button class="help-btn" id="btnHelp">怎么用</button><button class="icon-btn" id="btnTheme" aria-label="切换夜间模式" title="切换夜间模式"><span class="theme-symbol" aria-hidden="true"></span></button></div>
+  </header>
+  <div class="storage-warning" id="storageWarning" role="alert" hidden>浏览器未能保存内容。请先复制正文或导出本子，再检查存储空间与浏览器设置。</div>
+  <main>
+    <section id="viewWrite" aria-label="写作台">
+      <div class="work-top"><div class="mode-switch" role="group" aria-label="抽题方式"><button id="modeFree" aria-pressed="true">随便抽</button><button id="modeDaily" aria-pressed="false">今日</button></div><p class="work-note">写三行也行，没人打分。</p></div>
+      <div class="daily" id="dailyPick" hidden><div class="daily-heading"><h1 class="page-heading">今天，从哪个开始</h1><p id="dailyDate"></p></div><div id="dailyCards"></div><div class="daily-foot"><p>开头、画面、对白，每天各一题。选一句，写出你的下一句。</p><details class="config"><summary>限制 <span id="dailyRuleN">×1</span></summary><div class="popover"><label for="dailyRuleCount">限制条数</label><select id="dailyRuleCount" class="select"><option value="1">1 条，轻轻开始</option><option value="2">2 条，多一点挑战</option><option value="3">3 条，试试边界</option></select><p>今日题目在每天零点更新。</p></div></details></div></div>
+      <div id="writeMain">
+        <div class="edit-banner" id="editBanner" hidden><span>正在编辑本子里的这一段</span><button class="text-btn" id="cancelEdit">取消编辑</button></div>
+        <div class="desk">
+          <aside class="prompt-pane" aria-label="这次的题目"><div class="kind-line"><span id="kind">开头</span></div><h1 class="prompt-text" id="given"></h1><p class="source" id="source" hidden></p><div class="prompt-tools"><button class="text-btn" id="btnAnother">换一个开头 ↗</button><button class="quiet-btn" id="btnBanGiven">不用它</button></div>
+            <div class="constraint-block"><div class="constraint-head"><h2>给自己一个限制</h2><span class="settings-summary" id="ruleSummary">1 条</span></div><ul class="rules" id="rules"></ul><div class="rule-bottom"><div class="timer-wrap"><button id="timerStop" class="timer-stop" hidden title="点击停止计时"></button><details class="config" id="timerConfig"><summary id="timerLabel">限时</summary><div class="popover"><p style="margin:0 0 12px">时间到了，会为你存下。</p><div class="timer-choices"><button data-minutes="5">5 分</button><button data-minutes="10">10 分</button><button data-minutes="20">20 分</button></div></div></details></div><details class="config" id="ruleConfig"><summary>限制条数</summary><div class="popover"><label for="ruleCount">限制条数</label><select id="ruleCount" class="select"><option value="1">1 条，轻轻开始</option><option value="2">2 条，多一点挑战</option><option value="3">3 条，试试边界</option></select><p>限制是给你添麻烦的，越麻烦越有东西写。</p></div></details></div></div>
+          </aside>
+          <div class="writing-pane"><div class="paper"><div class="paper-top"><label class="paper-title" for="body">接着写下去</label></div><textarea class="editor" id="body" spellcheck="false" placeholder="不用写得通，先写下去。" aria-describedby="draftStatus"></textarea><div class="paper-bottom"><span class="count" id="count">0 字</span><span class="draft-status" id="draftStatus" role="status">只在这台设备，放心写。</span></div></div>
+            <div class="editor-actions"><span class="shortcut"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> 存下</span><details class="mobile-tools" id="mobileTools"><summary>换题 · 更多</summary><div class="popover"><button class="text-btn" id="mobileAnother">换一个开头</button><button class="text-btn" id="mobileBan">不用这个题目</button><button class="text-btn" id="mobileImage">存成图片</button></div></details><div class="end"><button class="text-btn desktop-share" id="btnImage">存成图片</button><button class="btn btn-primary save-btn" id="btnSave">存下</button></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="book" id="viewBook" aria-labelledby="bookTitle" hidden><div class="book-head"><h1 class="page-heading" id="bookTitle">我的本子</h1><div class="book-commands"><button class="text-btn" id="btnRecall">随便翻一条 ↗</button><button class="btn" id="btnManage">管理本子</button></div></div><div class="stats" id="stats"></div><div id="entries"></div><div class="empty" id="empty" hidden><h2>第一段，留给你。</h2><p>写完一段，按「存下」。<br>不管写了多少字，都是一个开始。</p><button class="btn btn-primary" id="emptyGo">去写一段</button></div><div class="book-footer"><span id="bookFirst"></span><span>存在当前浏览器里，记得偶尔备份。</span></div></section>
+  </main>
+  <footer class="footer"><p class="footer-motto">写下去就好了</p><span class="privacy-note">不用登录 · 内容只存在这台设备</span><button class="text-btn" id="btnAbout">关于起头</button></footer>
+</div>
+<dialog class="drawer" id="manageDialog" aria-labelledby="manageTitle"><div class="dialog-head"><h2 id="manageTitle">管理本子</h2><button class="close-btn" data-close="manageDialog" aria-label="关闭管理本子">×</button></div><section class="manage-section"><h3>加进池子</h3><p>看到好句子就放进来，下次随便抽时可能遇见。今日题目只使用原装题库。</p><form id="addForm"><div class="form-row"><div class="form-field"><label for="addKind">类型</label><select class="select" id="addKind"><option>开头</option><option>画面</option><option>对白</option><option>限制</option></select></div></div><div class="form-field"><label for="addText">你收集的句子</label><textarea class="input" id="addText" rows="3" required maxlength="2000" placeholder="写一句你自己的"></textarea></div><button class="btn btn-primary" type="submit">加进去</button></form><div class="mine-list" id="mine"></div></section><section class="manage-section"><h3>带走你的文字</h3><p>导出文字便于阅读。完整备份包含作品、草稿与题库，换设备时可恢复。</p><div class="form-row"><button class="btn" id="btnExport">导出 TXT</button><button class="btn" id="btnBackup">完整备份</button></div><div class="form-field"><label for="importFile">从完整备份恢复</label><input class="input" type="file" id="importFile" accept=".json,application/json"></div></section><section class="manage-section"><h3>题库设置</h3><div class="reset-actions"><button class="text-btn" id="resetBans">恢复被我拉黑的句子</button><button class="text-btn" id="resetMine">清空我加进池子的</button><button class="text-btn" id="resetQueue">重新洗牌</button><button class="text-btn" id="resetDefaults">恢复默认题库</button></div><p>这些操作会保留你写过的本子。</p></section><section class="manage-section"><h3>清空本子</h3><p>清空前，建议先导出一份完整备份。</p><button class="text-btn danger" id="btnClear">清空全部作品</button></section></dialog>
+<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialog-head"><h2 id="helpTitle">起个头，就好。</h2><button class="close-btn" data-close="helpDialog" aria-label="关闭帮助">×</button></div><ol class="help-list"><li><b>一句开头，一条限制。</b><p>你可以随便抽，也可以从今日的三道题里选。限制多一点，有时更容易写出来。</p></li><li><b>接着往下写。</b><p>三行也行，一屏也行。想专注一会儿，可以给自己设个计时。</p></li><li><b>把这一段留下。</b><p>按「存下」收进本子，或存成图片。以后还能回来编辑。</p></li></ol><div class="callout">草稿会自动保存在当前浏览器里。换设备、换网址或清理浏览器数据前，请先完整备份。带出处的句子来自对应作品，其余为写作练习素材。</div><div class="dialog-actions"><button class="btn btn-primary" data-close="helpDialog">去写一段</button></div></dialog>
+<dialog id="confirmDialog" aria-labelledby="confirmTitle" aria-describedby="confirmText"><h2 id="confirmTitle"></h2><p id="confirmText"></p><div class="dialog-actions"><button class="text-btn danger discard-btn" id="confirmDiscard" hidden>不保存，继续</button><button class="btn" id="confirmCancel">取消</button><button class="btn btn-primary" id="confirmAccept">确认</button></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+var SENTENCES = [
+"那年冬天特别冷，河面结了冰。","他走的时候没关门，风把桌上的纸吹了一地。",
+"母亲总说，等你长大了就懂了。可我长大了，还是不懂。","楼下的梧桐又落叶了，扫街的人换了一个。",
+"信寄出去的第三天，我开始后悔。","她把钥匙放在门口的鞋柜上，没有再回来。",
+"火车晚点了两个小时，站台上的人都在等。","那把椅子一直在，只是坐的人换了好几茬。",
+"我先看见的是他的鞋，白的，很干净。","院子里的枣树是爷爷种的，他走了以后，枣一年比一年小。",
+"她说完那句话，屋里安静了很久。","夏天的傍晚总是很长，长得像是不会天黑。",
+"我把那张照片收进抽屉，再没拿出来过。","第一次进城那年，我十七岁。",
+"雨下了整夜，第二天早上，门口多了一只鞋。","他说话的时候不看人，眼睛一直盯着窗外的树。",
+"有些话，说晚了就和没说一样。","巷子很窄，两个人错身要侧着走。",
+"那时候我们还小，以为夏天不会结束。","她把头发剪短了，说这样省事。",
+"老屋拆了，地基上长满了草。","我记不清他的样子，只记得他抽烟的姿势。",
+"电话响了三声，我挂了。","那年我离开家乡，行李只有一个包。",
+"窗台上那盆花，是她留下的唯一的东西。","他一辈子没出过远门，却把地图翻烂了。",
+"饭凉了，没人动筷子。","我记得那天有风，风里有煤烟味。",
+"他把钱放在桌上，转身就走。","很多年以后，我又回到那条街。",
+"她笑着应了，手却一直捏着衣角。","天亮之前，他还在等一个电话。",
+"他把伞往我这边斜了斜，自己半边肩膀湿透了。","那封信我读了三遍，还是没看懂最后一句。",
+"外婆的柜子里有一整抽屉的纽扣。","我们约在老地方，可老地方已经拆了。",
+"他戒烟戒了十七回。","冬天还没过完，她就把棉鞋收了。",
+"我第一次见他哭，是在一个很大的晴天。","账单压在茶几下面，谁也没提。",
+"他记得所有人的生日，除了自己的。","那年的蝉叫得特别凶，吵得人睡不着。",
+"她把菜里的肉都夹给了孩子，说自己不爱吃。","门是虚掩的，里面没有声音。",
+"他把手表调慢了十分钟。","这已经是第三次搬走了。",
+"楼下修鞋的摊子不见了，地上留着一圈油渍。","她说她不饿，却把饭吃得很慢。",
+"我把他的号码删了，可还记得。","那天他穿了件新衬衫，谁也没说。",
+"院子里那口井封了，上面盖了块水泥板。","他走路的样子，和他父亲一模一样。",
+"最后一场电影散场，只剩我们两个人没走。","母亲把好东西都留到坏掉。",
+"他把药藏在糖盒里。","我们说好不哭的。",
+"他一辈子只出过一次远门，是去看病。","那把伞还是坏的，一直没修。",
+"她在日历上画了个圈，那天没人来。","有些事，他到死都没说。",
+"飞船跃迁完成的那一刻，舷窗外多了一颗不该存在的星星。",
+"我们在火星的第七年，水快用完了，可土豆还在长。",
+"广播里说，地球已经三天没有回信了。",
+"他醒来的时候，舱里只有他一个人，另外四个休眠舱是空的。",
+"空间站的舷窗上有一道裂纹，形状像一片叶子。",
+"人工智能第一次说「我累了」，是在一个很普通的周二。",
+"他们把它命名为「回声」，因为它只会重复人类说过的话——直到昨天。",
+"木星的风暴里传来一段旋律，和我们四十年前发出去的一模一样。",
+"月球背面的基地失联前，最后传回的是一段笑声。",
+"他算出了宇宙的寿命，然后决定明天照常去上班。",
+"第一次见到外星人，对方问的第一句话是：你们也做梦吗？",
+"冷冻舱提前醒了七十年，走廊里一个人也没有，灯全亮着。",
+"他把最后一点燃料留给了返航，这件事他没告诉任何人。",
+"银河系边缘有一家便利店，招牌上写着「营业中」。",
+"我们收到的第一条外星讯息，是一份菜谱。",
+"植入体升级的那天，他忘了自己母亲的声音。",
+"霓虹把雨水染成紫色，他站在街角等一个不会来的人。",
+"记忆可以购买了，最贵的是童年。",
+"城市的心跳是数据，今晚它漏了一拍。",
+"她把意识上传到云端，却每天下午三点仍会想起窗外的那棵树。",
+"广告投影追着他跑了三个街区，一直在喊他的小名。",
+"这个时代的穷人，是那些买不起梦境的人。",
+"他拆开自己的手臂，里面藏着一张纸条。",
+"全城断网的那一小时，人们第一次看清了彼此的脸。",
+"机器人侍者记得每一位常客的口味，包括那位已经去世的。",
+"第六十一天，罐头还剩三个，他开始数星星当饭吃。",
+"电台静默了三个月，今早突然响起了钢琴声。",
+"我们把最后一瓶水埋在地图标好的地方，然后分头走。",
+"废墟里长出一株番茄，谁也舍不得摘。",
+"感染者不会开门，可昨夜有人敲了三下。",
+"太阳被云层盖住的第三年，孩子问：白天是什么样的？",
+"他在高速路上走了两天，遇见的第一辆车的驾驶座是空的。",
+"避难所的门从里面锁上了，外面刻着一行字：别回来。",
+"我把自己的名字写在墙上，想让后来的人知道我来过。",
+"最后一支烟，我们两个人分着抽完了。",
+"这是我第七次过同一个星期二。",
+"她每天早晨都会在同样的位置捡到一枚硬币。",
+"钟表匠说，你的表停在了你死的那一刻。",
+"如果能重来，他还是会打开那扇门。",
+"日记本的最后一页写着：明天不要去。",
+"老人的房间里挂着三十七张同一天的照片。",
+"电梯每到十三楼就会慢下来，像在犹豫。",
+"他把今天的报纸收进抽屉，抽屉里已经有一叠一模一样的。",
+"测灵那天，他的灵根是杂的，可剑认了他。",
+"师父下山前只留下一句话：别去后山。",
+"他闭关三十年，出关时发现宗门只剩一块牌匾。",
+"第九次渡劫失败之后，他决定去当个凡人。",
+"剑冢里插着一万把断剑，最上面那把还在颤。",
+"灵气复苏的第三年，楼下早餐铺的老板飞升了。",
+"他花了六十年炼出一枚丹，丹成那日，故人已经不在。",
+"天梯有九千阶，走到第八千阶的人都会回头看一眼。",
+"她把本命法宝卖了，换了三两银子和一坛酒。",
+"魔尊说他当年也是个好人，说这话时他正在喝茶。",
+"掌门临终前把整座山门交给了一个扫地的。",
+"他终于修成了无情道，却在那天想起了她的名字。",
+"刀伤好了，可是他握不住筷子了。",
+"江湖上再没人见过那个使左手剑的人。",
+"他欠了一条命，债主是个十二岁的姑娘。",
+"酒肆里那个人掏出一锭银子，说要买一颗人头。",
+"师父教的第一招是跑，他用了二十年才懂。",
+"十年后他回到客栈，掌柜还是那句话：客官，打尖还是住店？",
+"她递过来的酒，他没敢喝。",
+"镖走了三千里，箱子里是空的。",
+"名册上第三个名字被人用指甲刮掉了。",
+"他赢了比武，输了一双手。",
+"那把刀锈了二十年，出鞘时还是亮的。",
+"江湖规矩：欠的债，下一辈接着还。",
+"天庭的蟠桃少了三千个，查不出来是谁吃的。",
+"龙王说，这雨不能再下了，再下就要淹了人间。",
+"她是被贬下凡的第九个，前面八个都没回来。",
+"月老把红线剪断的那一刻，凡间下了场红雨。",
+"雷部打的雷，有一道是打给自己的。",
+"神仙也会老，只是老得很慢很慢。",
+"他把仙骨抽出来，换了凡人十年寿命。",
+"南天门外的石狮子上，刻着一行小字：我也曾是人。",
+"半夜有人敲门，开门一看，是自己。",
+"棺材里的尸体少了一只鞋。",
+"他说他不信鬼，然后把供桌上的牌位扶正了。",
+"庙里的菩萨昨晚换了姿势。",
+"那盏灯点了七十年，从来没添过油。",
+"纸人睁开了眼，问：我的眼睛画好了吗？",
+"她在镜子里看见自己背后站着一个人，笑了笑。",
+"清明那天，坟头的土是新的，可没人来过。",
+"转学第一天，我的同桌是个会读心的美少女——真是糟透了。",
+"醒来的瞬间我意识到：我变成了自己写的那个女主角。",
+"「学长，我有件事想跟你说。」天台上她这么说，然后风把话吹散了。",
+"我的青梅竹马在暑假结束前变成了吸血鬼，这就是全部的起因。",
+"便利店打工的第三个月，我遇见了自称神明的顾客。",
+"妹妹突然说：哥哥，其实我是从未来来的。",
+"全校最受欢迎的男生向我告白了，而我知道他的秘密。",
+"「这只是误会！」——这句话我今天说了第七遍。",
+"我养的猫会说话，它开口第一句是：你作业写完了吗？",
+"文化祭前夜，我们四个在天台立了个誓，谁也没当真。",
+"学生会长把退学申请书递给我的时候，笑了。",
+"如果人生有存档键，我会先存一个在十六岁的夏天。",
+"毕业照洗出来，他站在最边上，没人发现他没笑。",
+"课桌上刻着的两个名字，被漆盖掉了三次。",
+"她借我的那本笔记，第三十七页有半页是空的。",
+"运动会那天他跑了最后一名，全班都在喊加油。",
+"值日表上，我们两个的名字总挨在一起。",
+"教室后排那个座位，坐过的人都转学了。",
+"他把情书折成纸飞机，飞进了讲台底下。",
+"高三那年的晚自习，停电了，大家都在笑。",
+"黑板上的倒计时从一百变成零，用了整整一年。",
+"老师说，你们再看看书，我再看看你们。",
+"毕业那天，他把校服第二颗纽扣给了同桌的男生。",
+"图书馆关门前最后十分钟，她一直在看同一页。",
+"他记得她所有的口味，唯独不知道她喜欢谁。",
+"我们分手那天，天气特别好。",
+"她的朋友圈对他可见，他从来不点赞。",
+"结婚十年，他还是会在她睡着以后看她一会儿。",
+"暗恋是：把她的名字写满笔记本，再一页页撕掉。",
+"他存了三百条没有发出去的消息。",
+"她说「我没事」的时候，手在抖。",
+"分手后用了一年才戒掉的习惯，是一起听的那首歌。",
+"他终于说了喜欢，是在她的婚礼上，作为致辞。",
+"异地恋第三年，我们开始算时差，不再算日子。",
+"她把他的备注改回全名，那天谁也没说话。",
+"两个人挤在一把伞下，中间永远隔着一拳的距离。",
+"父亲把新手机递给我，说：你教我怎么用。",
+"母亲的记账本上，我的名字后面永远是最大的数字。",
+"他第一次叫爸爸，是在电话里。",
+"奶奶把糖藏在枕头底下，说给孙子留着，孙子已经二十岁了。",
+"父亲的背是这一年弯下去的。",
+"我把奖状贴到墙上，搬家的时候母亲第一个撕下来收好。",
+"弟弟把最后一块排骨夹给我，说自己不爱吃。",
+"母亲的手机相册里，全是我不在家那些日子拍的。",
+"他学会做饭那天，母亲在医院。",
+"家里的钥匙，他一直放在同一个口袋里。",
+"入职第一天的工位上，放着上一任留下的仙人掌。",
+"地铁末班车，他每天都是最后一个下的。",
+"加班到凌晨，公司楼下卖炒粉的阿姨还在。",
+"辞职信写了三遍，最后存进了草稿箱。",
+"电梯里遇见老板，他聊了四十秒的天气。",
+"他终于升职了，然后把工位搬到窗边，好看一看外面。",
+"同事离职那天，只带走了一个杯子。",
+"三十五岁生日那天，他收到了一份面试通知。",
+"便利店夜班的第十二个小时，进来一个哭着的人。",
+"他把方案改到第八版，最后用回了第一版。",
+"报案人说，凶手是他自己。",
+"监控里，她走进电梯，再也没出来。",
+"死者手里攥着一张彩票，开奖日期是明天。",
+"这栋楼每一层都有一个房间是锁着的。",
+"他收到一封自己的讣告，日期是三天后。",
+"十年前的案子，唯一的证物是一张超市小票。",
+"她说她没有妹妹，可照片上有两个人。",
+"雪地里的脚印，只有来的，没有回的。",
+"所有人的口供都对得上，除了时间。",
+"最后一个见到他的人，是三天前死的。",
+"半夜，床底下有人叫我的名字，声音是我自己的。",
+"电梯到九楼停了，门外站着一个背对着我的小孩。",
+"照片里多了一个人，其他人都不觉得。",
+"楼上的脚步声停了，停在我头顶正上方。",
+"镜子里的我，比现实慢了半秒。",
+"手机相册里多了两百张照片，都是我睡着的时候拍的。",
+"他每晚做同一个梦，梦里有个人在数他的呼吸。",
+"门牌号是 404，可这栋楼只有三层。",
+"他参军那年，家里的麦子还没收。",
+"战壕里的人都在写信，没人知道该寄到哪里。",
+"停战的消息传来时，他刚上完膛。",
+"城墙塌的那一刻，他护住的是一筐红薯。",
+"史书上没有这一段，是我祖父说的。",
+"他带着一封没拆的信，走了很多年。",
+"老兵每年那天都穿同一件外套，扣子缺一颗。",
+"他们约好活着的人去种一棵树，回来时只剩一个人。",
+"被卡车撞飞的瞬间，我听见一个声音说：开始转生。",
+"醒来时我躺在一片草地上，头顶飘着「LEVEL 1」。",
+"被召唤到异世界的第一件事，是给勇者做饭。",
+"魔王军的第四皇女，其实是我的同班同学。",
+"技能面板上写着「无用」，却是我活下来的关键。",
+"我转生成了史莱姆，第一口吃掉了勇者的鞋。",
+"公爵家的小姐把我买下来了，说：你看起来会读书。",
+"迷宫第三层有个卖装备的老头，他记得我前世的名字。",
+"圣女说我是预言中的人，可我只会种田。",
+"转生第七年，我终于接受了这里没有外卖这件事。",
+"决赛的前一秒，他把手从鼠标上拿开了。",
+"全服第一的账号，ID 是他已故哥哥的。",
+"队友掉线了，他一个人守到了最后。",
+"输了这场，战队就要解散。",
+"他在新手村待了三年，只为等一个人上线。",
+"系统公告：服务器将在十分钟后关闭。",
+"猫每天蹲在门口，等着一个不会回来的人。",
+"最后一只渡渡鸟，是被人用棍子打死的。",
+"蚂蚁搬了三天，搬的是一粒盐。",
+"森林里的狼学会了敲门。",
+"小王子走后，玫瑰每天都要说一次谎。",
+"树被砍的那天，鸟叫了一整夜。",
+"灶上的汤炖了四个小时，等的人还没回来。",
+"他乡的菜，怎么吃都少一味。",
+"面馆关门前，老板总会留一碗给一个不来的人。",
+"行李箱的轮子坏了，他索性在原地住了一年。",
+"村口的老槐树，是全村人的钟表。",
+"他把家乡的土装了一小袋，带到了很远的北方。",
+"菜市场的阿姨记得我爱吃辣，我搬走十年了。",
+"第一场霜下来，母亲就开始腌菜了。",
+"医生的诊断书，他折了四折放进口袋。",
+"病房的窗台上，那盆绿萝还活着。",
+"他开始整理照片，从最后一年往前。",
+"梦里她还是二十岁的样子，醒来他要记很久才能想起现在。",
+"葬礼上放的是他最讨厌的那首歌。",
+"他写好了遗书，然后又写了第二封，是给活人看的。",
+"弥留之际，他说的是：灯关一下。",
+"守灵那夜，大家都在讲他的笑话，没人哭。",
+"他写下的第一个句子，害死了主角。",
+"作家说，这个故事我改了二十年，只改了开头。",
+"空白的稿纸上，落了一个字：等。",
+"我决定从今天开始写日记，写别人的人生。",
+"主人公求我：能不能让我歇一章。",
+"这本书的最后一页写着：接下来说说你。",
+];
+var SCENES = [
+"一盏灯亮着，桌子旁边空着一把椅子。","雪停了，院子里有一行脚印，走到一半就没了。",
+"灶上的水开了，没人去关火。","窗玻璃上有一道裂痕，从左上角一直到右边。",
+"晒衣绳上挂着一件小孩的衣服，已经干了很久。","柜台后面的老头在看报纸，头也没抬。",
+"公交车最后一排，只有一个人，抱着一个空书包。","冰箱门上贴着一张纸条，字已经看不清了。",
+"两双筷子摆在桌上，只有一副动过。","门牌号掉了，剩下两个螺丝钉留在墙上。",
+"一只猫蹲在台阶上，看着同一个方向，很久没动。","抽屉里有一叠信，都拆开了，按日期排好。",
+"一辆自行车倒在雪地里，轮子还在转。","灶台上的锅盖掀开着，里面是空的。",
+"墙上有两个钉子，中间那块地方比周围白。","一排鞋子摆得很整齐，最左边那双很小。",
+"桌上的茶凉了，茶叶沉在杯底。","走廊的灯坏了一盏，走过去要先亮后暗。",
+"窗台上有一排药瓶，按大小排着。","沙发上搭着一件外套，好像人刚走开。",
+"楼梯扶手上缠着一圈胶布。","水缸里结了一层薄冰，下面有东西在动。",
+"门框上有几道铅笔印，一道比一道高。","一根绳子上晾着两条毛巾，一条干的，一条湿的。",
+"舷窗外，地球是一颗蓝色的弹珠，正在变小。",
+"空间站的走廊里，重力靴踩在金属地板上的声音很空。",
+"宇航员头盔的反光里，映着一整个星系。",
+"全息投影停在一个孩子的脸上，信号断断续续。",
+"登月舱的舱门开着，沙地上只有一行往外走的脚印。",
+"控制台的红灯闪了整整一夜，没人去关。",
+"人造太阳升起来了，城市没有影子。",
+"飞船残骸里，一棵绿植还活着。",
+"太空电梯的缆绳穿过云层，看不见尽头。",
+"火星的日落是蓝色的。",
+"观测站收到一段信号，波形像心跳。",
+"休眠舱的玻璃上结了一层霜，里面的人还在睡。",
+"霓虹招牌倒映在积水里，被车碾碎又合拢。",
+"义体医生的工作台上，摆着一排别人的手。",
+"天空是一块广告屏，今晚在卖一种叫「童年」的香氛。",
+"数据洪流里，一行代码在反复写同一个名字。",
+"地下城的通风口冒着白气，像有人在抽烟。",
+"电子羊在屋顶上吃着塑料草。",
+"街道空无一人，只有清洁机器人在慢慢扫地。",
+"她的眼睛在夜里会亮起淡淡的蓝光。",
+"旧世界的照片挂在墙上，颜色还没有褪。",
+"雨里站着一千把伞，每一把下面都空着。",
+"沙暴过后，露出半截加油站，招牌上还剩两个字。",
+"超市的货架空了，收银台上摆着一束塑料花。",
+"一辆自行车倒在公路中间，链条还在滴油。",
+"防空洞的墙上画着太阳，画它的人没见过太阳。",
+"帐篷外挂着一串空罐头，风一吹就响。",
+"干涸的河床上，停着一条船。",
+"废墟里有一架钢琴，琴键少了七个。",
+"沙丘下面埋着一整个城市的屋顶。",
+"最后一棵树被围了起来，树上挂满了许愿牌。",
+"天空是灰的，太阳是一个模糊的圆。",
+"云海之上，一座山峰浮着，山门没有人守。",
+"剑气劈开瀑布，水帘后面是一间石室。",
+"丹炉的火已经灭了，灰里躺着一枚未成的丹。",
+"雪落了一夜，山顶的石碑上多了一行字。",
+"灵泉边，一只鹤在喝水，喝完抬头看了他一眼。",
+"宗门的钟响了九下，弟子们从四面八方飞来。",
+"藏经阁第三层，书架上落满灰，只有一本是翻开的。",
+"他拔剑的瞬间，桃花全开了。",
+"渡口的老船夫不收钱，只收故事。",
+"天劫的云压得很低，雷光在里面游走。",
+"玉简里封着一段影像，画面里的人在笑。",
+"山洞深处的壁画上，画着一场还没发生的战争。",
+"客栈的旗子在风里响，屋里只有一桌客人。",
+"雪地上两行脚印，走到林子边分开了。",
+"刀插在桌面上，酒杯还在抖。",
+"渡口的船家在打盹，船头放着一柄油纸伞。",
+"灯笼挂在檐下，把两个人的影子拉得很长。",
+"赌场的骰子停在三点，没人敢先开口。",
+"药铺的柜台上摆着一双手套，右手那只旧一些。",
+"雨夜的破庙里，火堆旁围坐着四个陌生人。",
+"城墙上的通缉令被雨打湿了，画像看不清。",
+"马厩里只剩一匹马，正在慢慢嚼草。",
+"教室的窗户开着，窗帘被风鼓起来，又落下去。",
+"操场空了，篮筐上还挂着一件校服。",
+"黑板上写着值日生的名字，粉笔灰落在讲台的缝里。",
+"午后的阳光斜进图书馆，把书架切成两半。",
+"课桌上刻着一个日期，笔痕已经很浅了。",
+"走廊尽头的饮水机咕嘟响了一声。",
+"自行车棚里，两辆车靠在一起，锁扣互相扣着。",
+"放学后的教室里，夕阳把课桌染成橘色。",
+"天台的门没锁，风把一张试卷吹到了楼下。",
+"储物柜最上层，放着一个没人认领的便当盒。",
+"两杯咖啡放在桌上，一杯已经凉了。",
+"她站在地铁门口，玻璃上映着两个人的影子。",
+"便利店的灯光下，两个人各自拿着一瓶水。",
+"雨停了，他把伞收起来，才发现她已经在伞外走了很久。",
+"沙发中间隔着一个抱枕，谁也没挪开。",
+"手机屏幕亮了一下，又暗了。",
+"电影院散场，字幕还在滚，只剩两个人没走。",
+"楼道里，他站在她家门口，手抬起来又放下。",
+"相册翻到中间那一页，两个人的脸被折痕划开。",
+"出租屋的窗台上，摆着两盆不同品种的花。",
+"饭桌上有四副碗筷，只坐了三个人。",
+"阳台上晒着两件衣服，一大一小。",
+"电视开着，音量调得很低，老人已经睡着了。",
+"冰箱门上贴着一张便条：记得吃饭。",
+"门口的鞋柜里，有一双鞋很久没动了。",
+"厨房的灯亮到很晚，锅盖下压着一张纸条。",
+"沙发扶手上搭着一条毯子，是给等门的人准备的。",
+"相册第一页是黑白照，最后一页是空的。",
+"药盒分成七格，只吃了三格。",
+"孩子的身高刻在门框上，最后一道线停在那里。",
+"走廊尽头的灯忽明忽暗，第三个房间的门缝下有光。",
+"雪地上有一行脚印，从房子里出来，没有回去的。",
+"电话簿上，有一个号码被反复圈了十七次。",
+"镜子上蒙着布，布下面有雾气。",
+"阁楼的地板上摆着七把椅子，围成一个圈。",
+"抽屉里放着一双小孩的鞋，鞋带系得很整齐。",
+"墙上的挂钟停在三点十七分，秒针却还在走。",
+"门缝里塞进一封信，收件人已经死了十年。",
+"楼道的声控灯坏了，只有脚步声能证明有人在上楼。",
+"照片的背景里，有一只手搭在窗台上。",
+"战壕的泥里露出半只靴子，靴子里有水。",
+"纪念碑上的名字排得很密，最下面一行是新刻的。",
+"老兵口袋里有一张照片，边角磨白了。",
+"废墟里挂着一面旗，还认得出颜色。",
+"军用水壶上刻着两个名字。",
+"火车站的墙上贴满了告示，最上面那张日期是昨天。",
+"一排空椅子摆在礼堂里，等着不会来的人。",
+"弹壳堆在墙角，孩子们拿来当玩具。",
+"传送阵的光散去，地上留着一圈焦痕。",
+"魔法学院的钟楼，指针是倒着走的。",
+"酒馆里，矮人在喝酒，精灵在弹琴，人类在算账。",
+"巨龙的骨架横在谷口，肋骨之间长出了树。",
+"迷宫的墙上刻着：第三个人会死。",
+"勇者的剑插在石头里，锈得拔不出来了。",
+"精灵的图书馆里，书会自己翻页。",
+"村庄中央那口井里，映出来的不是天空。",
+"天台上，风把她的裙子吹起来，她按住裙角，脸红了。",
+"教室最后一排，他睡得很香，阳光落在睫毛上。",
+"自动贩卖机前，两罐咖啡一起掉了下来。",
+"雨天，两个人挤在一把伞下，肩膀贴着肩膀。",
+"鞋柜里多了一封信，信封上没有写名字。",
+"放学路上，便利店的灯光把影子拉得老长。",
+"文化祭的夜晚，烟花在操场上升起，没人说话。",
+"车站的站台上，电车带走了最后一句「明天见」。",
+];
+var LINES = [
+"「你先走吧，我再坐一会儿。」","「这个不用你管。」","「我记得不是这样的。」","「你吃了吗。」",
+"「别告诉她我来过。」","「那就这样吧。」","「我等你到天黑。」","「你回来了。」",
+"「钱我不要了。」","「其实我早就知道。」","「你别说，听我说完。」","「没事，你忙你的。」",
+"「这个你还留着。」","「我没生气。」","「你先睡，我守着。」","「多少钱都行。」",
+"「别等我了。」","「我早就忘了。」","「你说的对，但是。」","「先别告诉妈。」",
+"「就当没见过我。」","「你记性真好。」","「这次不一样。」","「路上小心。」",
+"「别开舱门，外面不是真空。」",
+"「如果我们回不去，就把这段录音发出去。」",
+"「它学会说谎了。」",
+"「这颗星球上，只有我们两个人了。」",
+"「你害怕吗？」「怕。所以才要走。」",
+"「倒计时还剩三分钟。」「够抽根烟吗？」",
+"「我把他的记忆备份了。」「那不是他。」",
+"「信号是从地球发来的。」「地球已经没有人了。」",
+"「我们不是第一个来的。」",
+"「如果这也算活着的话。」",
+"「你带了什么？」「水。你呢？」「我带了地图。」",
+"「别丢下我。」",
+"「往南走，南边还有人。」",
+"「车没油了。」「那就走。」",
+"「我们说好不去那边的。」",
+"「如果你先死了，我会把你的名字刻在墙上。」",
+"「你这一剑，练了多少年？」「三十年。」「可惜，我躲了三十一年。」",
+"「我不要你的命，我要你的剑。」",
+"「师兄，后山到底有什么？」",
+"「修仙是为了什么？」「为了不用再跪着。」",
+"「你的道，错了。」「错就错了。」",
+"「我渡的不是劫，是我自己。」",
+"「天要亡我。」「那我便亡天。」",
+"「这一炉丹，我是拿命换的。」",
+"「你还记得山下那家面摊吗？」「记得。老板娘还在等。」",
+"「别叫我祖师，我早就不是了。」",
+"「你为什么救我？」「因为你还没还我钱。」",
+"「这一刀，我练了十年。」",
+"「江湖上的人都说你死了。」「那就让他们说。」",
+"「我答应过一个人，要活着回去。」",
+"「喝酒吗？」「戒了。」「那喝茶。」",
+"「你的剑呢？」「当了。」「为什么？」「换药。」",
+"「这一战，你赢不了。」「我知道。」",
+"「替我看看山顶的日出。」",
+"「学长，明天……你有空吗？」",
+"「我只是路过。」「这是三楼。」",
+"「便当多做了一个，你要吗？」",
+"「不准看！」「我已经看了。」",
+"「这不是误会！」",
+"「如果我说我喜欢你，你会怎么办？」「我会装作没听见。」",
+"「你为什么对我这么好？」「因为我喜欢笨蛋。」",
+"「明天见。」「嗯，明天见。」",
+"「我们，算是朋友了吧？」",
+"「伞给你，你跑快一点。」",
+"「你脸红了。」「是天热。」",
+"「毕业以后，我们还能这样吗？」",
+"「我喜欢的人，坐在教室最后一排靠窗。」",
+"「如果重来一次，我还是会选你。」",
+"「妈，我回来了。」「饭在锅里。」",
+"「这点钱你拿着。」「我有钱。」「你那点钱，我还能不知道？」",
+"「爸，手机我教你了，别又忘了。」",
+"「你什么时候回家？」「快了。」",
+"「我不饿，你们先吃。」",
+"「这个我不爱吃，你吃吧。」",
+"「别忘了带伞。」「知道了，啰嗦。」",
+"「你爸就是这样，嘴上不说。」",
+"「谁能证明你当时在家？」「没有人。我一个人住。」",
+"「你撒谎。」「证据呢？」",
+"「这不是第一起了。」",
+"「死者的手机不见了。」",
+"「所有人都说他是好人。」「好人也杀人。」",
+"「你早就知道了吧。」",
+"「还剩三秒，投不投？」「投。」",
+"「输了就解散。」「那就不许输。」",
+"「你的手在抖。」「是兴奋。」",
+"「下一场，我上。」",
+"「这不是游戏。」",
+"「赢了就告诉你我的名字。」",
+"「别回头。」",
+"「你身后有人。」",
+"「我们数过了，进来的是七个人。」",
+"「它一直在看着你。」",
+"「欢迎来到异世界，勇者大人。」",
+"「你的技能是……种田？」",
+"「魔王其实是个好人。」「这话别让圣女听见。」",
+"「我要回地球。」「那扇门已经关了。」",
+"「龙的弱点在第七片鳞下面。」",
+"「这个迷宫，我们是第几次进了？」",
+"「我是被召唤来的。」「我也是，第三十七个。」",
+"「别相信系统面板上的数字。」",
+];
+var RULES = [
+"不许出现「很」「非常」「特别」","只写动作，不写心情","整段不超过三十个字","必须写到一种气味",
+"不许用形容词","用第二人称「你」来写","写一个只有你才会注意到的细节","结尾停在半句话上",
+"不许出现「的」字","必须写到一样吃的东西","全篇不超过五个句号","从一种声音写起",
+"不许写出任何人的名字","写一个物件，不写人","最后一句要特别短","不许解释，只呈现",
+"写一件没做成的事","写一个时间的空白，比如「三年后」","只能写一个句子，不许分段","必须出现一个数字",
+"不许写「我」","写到一半换一个人称","必须有一种颜色","不许写到天气",
+"用一句方言写","最后一个字必须是名词","全篇只用逗号，不许用句号","写一个正在进行、还没有结果的动作",
+"不许出现任何心理活动的词（想、觉得、以为）","把开头那句再写一遍，但意思反过来",
+"全文只用一个标点",
+"不许写对话",
+"只写对话",
+"用第二人称写",
+"以一句谎言开头",
+"结尾重复开头那句话",
+"不许出现人名",
+"每个句子不超过十个字",
+"必须重复三次同一个词",
+"不写过去，只写此刻",
+"把主角换成一只动物",
+"用天气代替情绪",
+"不许用形容词",
+"不许出现「的」",
+"必须写到一个数字",
+"只写手能摸到的东西",
+"不许出现「夜」字",
+"以声音结尾",
+"必须提到一种食物",
+"让主角说一句谎",
+"不许写任何人的心理",
+"把故事关在一个房间里",
+"只写一段路",
+"用第三人称，但只盯着一个人",
+"写一个你没去过的地方",
+"必须出现一件旧东西",
+"不许出现时间词",
+"以问句结尾",
+"写两个人的沉默",
+"只写窗外",
+"让天气变化一次",
+"必须写到一种气味",
+"不许写名字，只用称呼",
+"整段只允许一句话",
+"把结局写在第一句",
+"不许写「我」和「他」，只用名词",
+"必须写到一双手",
+"以「后来」开头",
+"不写对话，只写动作",
+"写一件别人觉得不重要的事",
+"让时间倒着走",
+"不许出现任何情绪词",
+"必须写到一个陌生人",
+"只写一分钟里发生的事",
+"把主角写成一个旁观者",
+"必须出现一句歌词",
+"不许写结局",
+"写得比平时短一半",
+"用一种颜色贯穿全段",
+"让最后一句变慢",
+];
+
+/* ---------- 有名有姓的开头：t 是句子，f 是出处 ---------- */
+var FAMOUS = [
+{t:"我冒了严寒，回到相隔二千余里，别了二十余年的故乡去。",f:"鲁迅《故乡》"},
+{t:"在我的后园，可以看见墙外有两株树，一株是枣树，还有一株也是枣树。",f:"鲁迅《秋夜》"},
+{t:"东京也无非是这样。",f:"鲁迅《藤野先生》"},
+{t:"我家的后面有一个很大的园，相传叫作百草园。",f:"鲁迅《从百草园到三味书屋》"},
+{t:"秋天的后半夜，月亮下去了，太阳还没有出。",f:"鲁迅《药》"},
+{t:"我与父亲不相见已二年余了，我最不能忘记的是他的背影。",f:"朱自清《背影》"},
+{t:"燕子去了，有再来的时候；杨柳枯了，有再青的时候。",f:"朱自清《匆匆》"},
+{t:"严冬一封锁了大地的时候，则大地满地都是裂着口。",f:"萧红《呼兰河传》"},
+{t:"呼兰河这小城里边，以前住着我的祖父，现在埋着我的祖父。",f:"萧红《呼兰河传》"},
+{t:"我们所要介绍的是祥子，不是骆驼，因为“骆驼”只是个外号。",f:"老舍《骆驼祥子》"},
+{t:"由四川过湖南去，靠东有一条官路。",f:"沈从文《边城》"},
+{t:"三十年前的上海，一个有月亮的晚上。",f:"张爱玲《金锁记》"},
+{t:"也许每一个男子全都有过这样的两个女人，至少两个。",f:"张爱玲《红玫瑰与白玫瑰》"},
+{t:"红海早过了，船在印度洋面上开驶着。",f:"钱钟书《围城》"},
+{t:"那一天我二十一岁，在我一生的黄金时代。",f:"王小波《黄金时代》"},
+{t:"我比现在年轻十岁的时候，获得了一个游手好闲的职业。",f:"余华《活着》"},
+{t:"明海出家已经四年了。",f:"汪曾祺《受戒》"},
+
+{t:"多年以后，面对行刑队，奥雷里亚诺·布恩迪亚上校将会回想起父亲带他去见识冰块的那个遥远的下午。",f:"马尔克斯《百年孤独》"},
+{t:"一天早晨，格里高尔·萨姆沙从不安的睡梦中醒来，发现自己躺在床上变成了一只巨大的甲虫。",f:"卡夫卡《变形记》"},
+{t:"一定有人诬告了约瑟夫·K，因为他没做过什么坏事，却在一天早上被捕了。",f:"卡夫卡《审判》"},
+{t:"幸福的家庭都是相似的，不幸的家庭各有各的不幸。",f:"托尔斯泰《安娜·卡列尼娜》"},
+{t:"那是最美好的时代，那是最糟糕的时代。",f:"狄更斯《双城记》"},
+{t:"我父亲的姓是匹瑞普，我的教名是菲利普。",f:"狄更斯《远大前程》"},
+{t:"凡是有钱的单身汉，总想娶位太太，这已经成了一条举世公认的真理。",f:"简·奥斯汀《傲慢与偏见》"},
+{t:"他是个独自在湾流里一条小船上钓鱼的老人，到今天已经八十四天，一条鱼也没钓着。",f:"海明威《老人与海》"},
+{t:"穿过县境上那条长长的隧道，便是雪国。",f:"川端康成《雪国》"},
+{t:"回首往昔，我这一生尽是可耻的过失。",f:"太宰治《人间失格》"},
+{t:"我年纪还轻、阅历不深的时候，父亲教导过我一句话，我至今念念不忘。",f:"菲茨杰拉德《了不起的盖茨比》"},
+{t:"今天，妈妈死了。也许是昨天，我搞不清。",f:"加缪《局外人》"},
+{t:"在很长一段时间里，我都是早早就躺下了。",f:"普鲁斯特《追忆似水年华》"},
+{t:"达洛维夫人说她要自己去买花。",f:"伍尔夫《达洛维夫人》"},
+{t:"不久以前，有位绅士住在拉曼却的一个村子里，村名我不想提起。",f:"塞万提斯《堂吉诃德》"},
+{t:"七月初，天气热得难受，傍晚时分，一个年轻人走出阁楼，来到街上。",f:"陀思妥耶夫斯基《罪与罚》"},
+{t:"透过栅栏的缝隙，我可以看见他们在打球。",f:"福克纳《喧哗与骚动》"},
+{t:"叫我以实玛利吧。",f:"梅尔维尔《白鲸》"},
+{t:"那一天不可能去散步了。",f:"夏洛蒂·勃朗特《简·爱》"},
+{t:"我刚刚拜访过我的房东回来，就是那位将要给我惹麻烦的孤独邻居。",f:"艾米莉·勃朗特《呼啸山庄》"},
+{t:"这是四月里的一天，天气晴朗而又寒冷，钟敲了十三下。",f:"奥威尔《一九八四》"},
+{t:"某日傍晚，一名家将在罗生门下避雨。",f:"芥川龙之介《罗生门》"},
+{t:"我是猫。名字嘛，还没有。",f:"夏目漱石《我是猫》"},
+{t:"打小时候起，父亲就常常跟我说金阁的故事。",f:"三岛由纪夫《金阁寺》"},
+{t:"大人们自己什么也弄不懂，还要孩子们没完没了地给他们解释，真烦人。",f:"圣埃克苏佩里《小王子》"},
+{t:"一辆相当漂亮的小型弹簧马车驶进了省城旅店的大门。",f:"果戈里《死魂灵》"},
+{t:"警官奥楚梅洛夫穿着新军大衣，手里提着个小包，穿过市场的广场。",f:"契诃夫《变色龙》"},
+{t:"那年秋天的一个沉闷、晦暗、寂静的日子，我一整天独自骑马穿行在一片异常阴郁的乡野。",f:"爱伦·坡《厄舍府的倒塌》"},
+{t:"满纸荒唐言，一把辛酸泪。",f:"曹雪芹《红楼梦》"},
+{t:"话说天下大势，分久必合，合久必分。",f:"罗贯中《三国演义》"},
+{t:"混沌未分天地乱，茫茫渺渺无人见。",f:"吴承恩《西游记》"},
+{t:"庭有枇杷树，吾妻死之年所手植也，今已亭亭如盖矣。",f:"归有光《项脊轩志》"},
+{t:"我们所要介绍的是祥子，不是骆驼，因为「骆驼」只是个外号。",f:"老舍《骆驼祥子》"},
+{t:"街上的柳树像病了似的，叶子挂着层灰土在枝上打着卷。",f:"老舍《骆驼祥子》"},
+{t:"严冬一封锁了大地的时候，则大地满地裂着口。",f:"萧红《呼兰河传》"},
+{t:"我真傻，真的。",f:"鲁迅《祝福》"},
+{t:"沉默呵，沉默呵！不在沉默中爆发，就在沉默中灭亡。",f:"鲁迅《记念刘和珍君》"},
+{t:"其实地上本没有路，走的人多了，也便成了路。",f:"鲁迅《故乡》"},
+{t:"我翻开历史一查，满本都写着两个字是「吃人」！",f:"鲁迅《狂人日记》"},
+{t:"轻轻的我走了，正如我轻轻的来。",f:"徐志摩《再别康桥》"},
+{t:"大江东去，浪淘尽，千古风流人物。",f:"苏轼《念奴娇·赤壁怀古》"},
+{t:"春花秋月何时了，往事知多少。",f:"李煜《虞美人》"},
+{t:"予观夫巴陵胜状，在洞庭一湖。",f:"范仲淹《岳阳楼记》"},
+{t:"晋太元中，武陵人捕鱼为业。",f:"陶渊明《桃花源记》"},
+{t:"北冥有鱼，其名为鲲。",f:"庄子《逍遥游》"},
+{t:"关关雎鸠，在河之洲。",f:"《诗经·关雎》"},
+{t:"人生若只如初见，何事秋风悲画扇。",f:"纳兰性德《木兰花令》"},
+{t:"落霞与孤鹜齐飞，秋水共长天一色。",f:"王勃《滕王阁序》"},
+{t:"红藕香残玉簟秋，轻解罗裳，独上兰舟。",f:"李清照《一剪梅》"},
+{t:"春风又绿江南岸，明月何时照我还。",f:"王安石《泊船瓜洲》"},
+{t:"风萧萧兮易水寒，壮士一去兮不复还。",f:"司马迁《史记·刺客列传》"},
+{t:"对酒当歌，人生几何。",f:"曹操《短歌行》"},
+{t:"道可道，非常道。",f:"《道德经》"},
+{t:"天将降大任于是人也，必先苦其心志。",f:"《孟子》"},
+{t:"七月初，天气酷热，傍晚时分，一个年轻人从他租住的阁楼里走了出来。",f:"陀思妥耶夫斯基《罪与罚》"},
+{t:"他是个独自在湾流中一条小船上钓鱼的老人，至今已去了八十四天，一条鱼也没逮住。",f:"海明威《老人与海》"},
+{t:"穿过县界上的长隧道，便是雪国。夜空下一片白茫茫。",f:"川端康成《雪国》"},
+{t:"我这一生，尽是可耻之事。",f:"太宰治《人间失格》"},
+{t:"凡是有财产的单身汉，必定需要娶位太太，这已经成了一条举世公认的真理。",f:"简·奥斯汀《傲慢与偏见》"},
+{t:"一八六六年，一件离奇的、无法解释的事件震惊了整个世界。",f:"凡尔纳《海底两万里》"},
+{t:"我生下来那天，据说是个星期五。",f:"狄更斯《大卫·科波菲尔》"},
+{t:"名小说家 R 在山里度过三天假期，回来时发现桌上放着一封厚厚的信。",f:"茨威格《一个陌生女人的来信》"},
+{t:"老实说，我最初认识斯特里克兰德的时候，从不觉得他有什么了不起。",f:"毛姆《月亮与六便士》"},
+{t:"生存还是毁灭，这是一个问题。",f:"莎士比亚《哈姆雷特》"},
+{t:"凡是过往，皆为序章。",f:"莎士比亚《暴风雨》"},
+{t:"当你凝视深渊时，深渊也在凝视着你。",f:"尼采《善恶的彼岸》"},
+{t:"世界上只有一种真正的英雄主义，那就是在认清生活的真相之后依然热爱它。",f:"罗曼·罗兰《米开朗琪罗传》"},
+{t:"人是一根会思想的芦苇。",f:"帕斯卡《思想录》"},
+{t:"人最宝贵的是生命，生命属于人只有一次。",f:"奥斯特洛夫斯基《钢铁是怎样炼成的》"},
+{t:"我来到这世上，是为了看见太阳。",f:"巴尔蒙特《我来到这世上》"},
+{t:"我思故我在。",f:"笛卡尔《谈谈方法》"},
+{t:"未经审视的人生不值得过。",f:"苏格拉底（柏拉图《申辩篇》）"},
+{t:"我来，我见，我征服。",f:"凯撒《高卢战记》"},
+];
+
+var FAMOUS_LINES = [
+{t:"「生存还是毁灭，这是一个问题。」",f:"莎士比亚《哈姆雷特》"},
+{t:"「我们都生活在阴沟里，但依然有人仰望星空。」",f:"王尔德《温德米尔夫人的扇子》"},
+{t:"「星星发亮，是为了让每一个人有一天都能找到属于自己的星星。」",f:"圣埃克苏佩里《小王子》"},
+{t:"「你，一会儿看我，一会儿看云。」",f:"顾城《远和近》"},
+{t:"「从前的日色变得慢。」",f:"木心《从前慢》"},
+{t:"「人不是为失败而生的。」",f:"海明威《老人与海》"},
+{t:"「你以为我穷、不美、矮小，我就没有灵魂、没有心吗？」",f:"夏洛蒂·勃朗特《简·爱》"},
+{t:"「人可以被毁灭，但不能被打败。」",f:"海明威《老人与海》"},
+{t:"「明天，又是新的一天。」",f:"玛格丽特·米切尔《飘》"},
+{t:"「真正重要的东西，用眼睛是看不见的。」",f:"圣埃克苏佩里《小王子》"},
+{t:"「所有大人都曾经是小孩子，虽然只有少数人记得。」",f:"圣埃克苏佩里《小王子》"},
+{t:"「我爱你，与你何干。」",f:"歌德《少年维特的烦恼》"},
+{t:"「芝麻，开门吧。」",f:"《一千零一夜》"},
+{t:"「己所不欲，勿施于人。」",f:"《论语》"},
+{t:"「有朋自远方来，不亦乐乎。」",f:"《论语》"},
+{t:"「人不能两次踏进同一条河流。」",f:"赫拉克利特"},
+{t:"「弱者，你的名字是女人。」",f:"莎士比亚《哈姆雷特》"},
+{t:"「你要保守你心，胜过保守一切。」",f:"《圣经·箴言》"},
+{t:"「认识你自己。」",f:"苏格拉底（柏拉图《斐德罗篇》）"},
+{t:"「满地都是六便士，他却抬头看见了月亮。」",f:"毛姆《月亮与六便士》"},
+{t:"「凡是过往，皆为序章。」",f:"莎士比亚《暴风雨》"},
+];
+
+var KINDS = [
+  { name:"开头", pool:SENTENCES.concat(FAMOUS) },
+  { name:"画面", pool:SCENES },
+  { name:"对白", pool:LINES.concat(FAMOUS_LINES) }
+];
+</script>
+<script id="appScript">
+'use strict';
+const $ = id => document.getElementById(id);
+const KEYS = {entries:'qitou.entries',queue:'qitou.queue',mine:'qitou.mine',theme:'qitou.theme',ban:'qitou.ban',days:'qitou.days',draft:'qitou.draft.v4',settings:'qitou.settings.v4'};
+const kinds = ['开头','画面','对白'];
+let storageOK = true, memory = {}, entryReadError = false, lastDraftRaw = null;
+try{lastDraftRaw=localStorage.getItem(KEYS.draft);}catch(e){storageOK=false;}
+function read(key, fallback){try{const raw=localStorage.getItem(key);return raw===null?fallback:JSON.parse(raw);}catch(e){storageOK=false;if(key===KEYS.entries)entryReadError=true;return fallback;}}
+function put(key,value){try{localStorage.setItem(key,JSON.stringify(value));memory[key]=value;return true;}catch(e){storageOK=false;storageNotice();return false;}}
+function storageNotice(){if($('storageWarning'))$('storageWarning').hidden=false;}
+let entries=read(KEYS.entries,[]), mine=read(KEYS.mine,{}), banned=read(KEYS.ban,[]), days=read(KEYS.days,[]), queues=read(KEYS.queue,{});
+if(!Array.isArray(entries)){entries=[];entryReadError=true;storageOK=false;}
+if(!mine||typeof mine!=='object'||Array.isArray(mine))mine={};
+if(!Array.isArray(banned))banned=[];if(!Array.isArray(days))days=[];if(!queues||typeof queues!=='object')queues={};
+const validEntries=entries.filter(e=>e&&typeof e.body==='string'&&typeof e.given==='string'&&Number.isFinite(e.ts));
+if(validEntries.length!==entries.length){entryReadError=true;storageOK=false;}entries=validEntries;
+const storedSettings=read(KEYS.settings,{})||{};
+let ruleCount=[1,2,3].includes(storedSettings.ruleCount)?storedSettings.ruleCount:1;
+let current=null,view='write',mode='free',dailyOpen=false,timerId=null,toastId=null,confirmPending=false;
+const charCount=text=>Array.from(text.replace(/\s/g,'')).length;
+const pad=n=>String(n).padStart(2,'0');
+function dateKey(ts=Date.now()){const d=new Date(ts);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function dateLabel(ts){const d=new Date(ts);return d.getFullYear()+'.'+pad(d.getMonth()+1)+'.'+pad(d.getDate());}
+function timeLabel(ts){const d=new Date(ts);return pad(d.getHours())+':'+pad(d.getMinutes());}
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function normalize(pool){return pool.map(x=>typeof x==='string'?{t:x,f:''}:{t:x.t,f:x.f||''}).filter(x=>typeof x.t==='string'&&x.t.trim());}
+function basePool(kind){return normalize(kind==='限制'?RULES:(KINDS.find(k=>k.name===kind)||{pool:[]}).pool);}
+function poolOf(kind){return basePool(kind).concat(normalize(Array.isArray(mine[kind])?mine[kind]:[])).filter(o=>!banned.includes(o.t));}
+function shuffle(pool){const a=pool.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function nextFrom(kind,except=[]){const available=poolOf(kind).filter(o=>!except.includes(o.t));if(!available.length)return null;let q=Array.isArray(queues[kind])?normalize(queues[kind]):[];q=q.filter(o=>available.some(p=>p.t===o.t));if(!q.length)q=shuffle(available);const item=q.shift();queues[kind]=q;put(KEYS.queue,queues);return item;}
+function invalidateQueue(){queues={};put(KEYS.queue,queues);}
+function pickRules(){const picked=[];for(let i=0;i<ruleCount;i++){const o=nextFrom('限制',picked);if(o)picked.push(o.t);}return picked;}
+function newFree(){const available=kinds.filter(k=>poolOf(k).length);if(!available.length)return {kind:'开头',given:'',from:'',rules:pickRules(),body:'',daily:false,day:dateKey(),timerEnd:0,editTs:null};const kind=available[Math.floor(Math.random()*available.length)],o=nextFrom(kind);return {kind,given:o.t,from:o.f,rules:pickRules(),body:'',daily:false,day:dateKey(),timerEnd:0,editTs:null};}
+function dailyPick(pool,salt,day=dateKey()){if(!pool.length)return null;const start=hash(day+'|'+salt);for(let i=0;i<pool.length;i++){const o=pool[(start+i)%pool.length];if(!banned.includes(o.t))return o;}return null;}
+function dailyPrompts(day=dateKey()){return kinds.map((kind,i)=>{const g=dailyPick(basePool(kind),'given'+i,day);let left=basePool('限制');const rules=[];for(let j=0;j<ruleCount&&left.length;j++){const r=dailyPick(left,'rule'+i+'_'+j,day);if(!r)break;rules.push(r.t);left=left.filter(x=>x.t!==r.t);}return g?{kind,given:g.t,from:g.f,rules,body:'',daily:true,day,timerEnd:0,editTs:null}:null;}).filter(Boolean);}
+function toast(message){clearTimeout(toastId);$('toast').textContent=message;$('toast').classList.add('show');toastId=setTimeout(()=>$('toast').classList.remove('show'),3000);}
+function setDraftStatus(text,error=false){$('draftStatus').textContent=text;$('draftStatus').classList.toggle('error',error);}
+function persistDraft(){
+  const data={current,mode,dailyOpen,ruleCount},raw=JSON.stringify(data);
+  try{const latest=localStorage.getItem(KEYS.draft);if(latest!==lastDraftRaw&&latest!==raw){setDraftStatus('另一页更新了草稿，请将这一段存进本子',true);return false;}}catch(e){storageOK=false;}
+  const ok=put(KEYS.draft,data);if(ok)lastDraftRaw=raw;
+  setDraftStatus(ok?(current&&current.body?'草稿已保存在这台设备':'只在这台设备，放心写。'):'草稿未能保存，请复制正文',!ok);return ok;
+}
+function captureBody(){if(current)current.body=$('body').value;}
+function syncCount(){$('count').textContent=charCount(current?current.body:'').toLocaleString('zh-CN')+' 字';$('btnSave').disabled=!current||!current.body.trim();$('btnImage').disabled=!current||!current.body.trim();$('mobileImage').disabled=!current||!current.body.trim();}
+function setTheme(theme,persist=true){document.documentElement.dataset.theme=theme;const label=theme==='night'?'切换日间模式':'切换夜间模式';$('btnTheme').setAttribute('aria-label',label);$('btnTheme').title=label;if(persist)put(KEYS.theme,theme);}
+function showView(next){view=next;$('viewWrite').hidden=next!=='write';$('viewBook').hidden=next!=='book';$('navWrite').removeAttribute('aria-current');$('navBook').removeAttribute('aria-current');$(next==='write'?'navWrite':'navBook').setAttribute('aria-current','page');if(next==='book')renderBook();else renderWrite();}
+function renderWrite(){
+  $('modeFree').setAttribute('aria-pressed',String(mode==='free'));$('modeDaily').setAttribute('aria-pressed',String(mode==='daily'));
+  $('dailyPick').hidden=!dailyOpen;$('writeMain').hidden=dailyOpen;$('editBanner').hidden=!current||current.editTs===null;
+  $('ruleCount').value=String(ruleCount);$('dailyRuleCount').value=String(ruleCount);$('dailyRuleN').textContent='×'+ruleCount;
+  if(dailyOpen){renderDaily();return;}if(!current)return;
+  $('kind').textContent=(current.daily?'今日 · '+current.day.replaceAll('-','.')+' / ':'')+current.kind;
+  $('given').textContent=current.given||'题库空了，放进一句你自己的吧。';$('source').textContent=current.from;$('source').hidden=!current.from;
+  $('given').classList.remove('reveal');requestAnimationFrame(()=>$('given').classList.add('reveal'));
+  $('body').value=current.body;$('ruleSummary').textContent=current.rules.length+' 条';$('rules').replaceChildren();
+  for(const rule of current.rules){const li=document.createElement('li'),s=document.createElement('span'),b=document.createElement('button');s.textContent=rule;b.className='rule-remove';b.textContent='不用这条';b.setAttribute('aria-label','不再抽到限制：'+rule);b.hidden=current.editTs!==null;b.onclick=()=>banRule(rule);li.append(s,b);$('rules').append(li);}
+  if(!current.rules.length){const li=document.createElement('li');li.textContent='限制池空了，这次自由地写。';$('rules').append(li);}
+  const editing=current.editTs!==null;
+  $('btnAnother').textContent=current.daily?'重选今日题目 ↗':'换一个开头 ↗';$('mobileAnother').textContent=current.daily?'重选今日题目':'换一个开头';
+  $('btnAnother').disabled=editing;$('mobileAnother').disabled=editing;$('btnBanGiven').hidden=editing||!current.given;$('mobileBan').hidden=editing||!current.given;$('ruleConfig').hidden=editing;
+  $('btnSave').textContent=editing?'保存修改':'存下';syncCount();renderTimer();
+}
+function renderDaily(){
+  $('dailyDate').textContent=dateLabel(Date.now())+(days.includes(dateKey())?' · 今天写过了':'');$('dailyCards').replaceChildren();
+  const prompts=dailyPrompts();if(!prompts.length){const p=document.createElement('p');p.className='callout';p.textContent='今日题目都被你隐藏了，可以在「管理本子」恢复。';$('dailyCards').append(p);return;}
+  prompts.forEach((p,i)=>{const d=document.createElement('details');d.className='daily-item';d.name='daily-question';d.open=i===0;const s=document.createElement('summary'),k=document.createElement('span'),g=document.createElement('span'),c=document.createElement('span');k.className='daily-kind';k.textContent=p.kind;g.className='daily-given';g.textContent=p.given;c.className='daily-chevron';c.textContent='+';c.setAttribute('aria-hidden','true');s.append(k,g,c);const content=document.createElement('div');content.className='daily-content';if(p.from){const source=document.createElement('p');source.className='daily-source';source.textContent=p.from;content.append(source);}const r=document.createElement('p');r.className='daily-rule';r.textContent=p.rules.join('；')||'这次自由地写。';const btn=document.createElement('button');btn.className='btn btn-primary';btn.textContent='从这句开始';btn.onclick=()=>chooseDaily(p);content.append(r,btn);d.append(s,content);$('dailyCards').append(d);});
+}
+function ask(title,message,accept='确认',discard=false){if(confirmPending)return Promise.resolve('cancel');confirmPending=true;return new Promise(resolve=>{const d=$('confirmDialog');$('confirmTitle').textContent=title;$('confirmText').textContent=message;$('confirmAccept').textContent=accept;$('confirmCancel').textContent=discard?'继续写':'取消';$('confirmDiscard').hidden=!discard;let settled=false;const finish=value=>{if(settled)return;settled=true;d.close();confirmPending=false;resolve(value);};$('confirmAccept').onclick=()=>finish('accept');$('confirmCancel').onclick=()=>finish('cancel');$('confirmDiscard').onclick=()=>finish('discard');d.oncancel=e=>{e.preventDefault();finish('cancel');};d.showModal();$('confirmCancel').focus();});}
+function dirty(){if(!current)return false;const saved=current.editTs!==null?entries.find(e=>e.ts===current.editTs):null;return saved?current.body!==(current.editOriginalBody??saved.body):Boolean(current.body.trim());}
+async function protectDraft(){captureBody();if(!dirty())return true;const a=await ask('先把这一段留下？','这段文字还没有存进本子。存好以后，再开始新的题目。','先存下再继续',true);if(a==='cancel')return false;if(a==='accept')return saveEntry(false);return true;}
+function stopTimer(silent=false){if(timerId!==null)clearInterval(timerId);timerId=null;if(current)current.timerEnd=0;renderTimer();if(!silent)persistDraft();}
+function replaceCurrent(next,nextMode=mode,pick=false){stopTimer(true);current=next;mode=nextMode;dailyOpen=pick;persistDraft();renderWrite();if(!pick&&view==='write')$('body').focus({preventScroll:true});}
+async function changeMode(next){if(next===mode&&!(current&&current.editTs!==null))return;if(!await protectDraft())return;replaceCurrent(next==='free'?newFree():null,next,next==='daily');}
+async function another(){if(current&&current.editTs!==null)return;if(!await protectDraft())return;replaceCurrent(mode==='daily'?null:newFree(),mode,mode==='daily');}
+async function chooseDaily(prompt){if(!await protectDraft())return;replaceCurrent({...prompt,rules:prompt.rules.slice()},'daily',false);}
+function changeRuleCount(value){const next=Number(value);if(![1,2,3].includes(next))return;ruleCount=next;put(KEYS.settings,{ruleCount});if(current&&current.editTs===null){captureBody();if(current.daily){const p=dailyPrompts(current.day).find(p=>p.kind===current.kind);if(p)current.rules=p.rules;}else current.rules=pickRules();}persistDraft();renderWrite();}
+async function banGiven(){if(!current||!current.given||current.editTs!==null)return;if(!await protectDraft())return;const b=[...new Set([...banned,current.given])];if(!put(KEYS.ban,b))return;banned=b;invalidateQueue();replaceCurrent(mode==='daily'?null:newFree(),mode,mode==='daily');toast('以后不再抽到这一句了');}
+async function banRule(rule){if(!current||current.editTs!==null)return;captureBody();const result=await ask('以后不再抽到这条限制？',rule+'。正文会保留，为你换一条限制。','不用它');if(result!=='accept')return;const b=[...new Set([...banned,rule])];if(!put(KEYS.ban,b))return;banned=b;invalidateQueue();if(current.daily){const p=dailyPrompts(current.day).find(p=>p.kind===current.kind);current.rules=p?p.rules:[];}else{const replacement=nextFrom('限制',current.rules);current.rules=current.rules.filter(x=>x!==rule);if(replacement)current.rules.push(replacement.t);}persistDraft();renderWrite();toast('限制换好了，正文还在');}
+function writeEntries(next){if(entryReadError){storageNotice();toast('旧本子未能读取，请先导出或备份浏览器数据');return false;}if(!put(KEYS.entries,next))return false;entries=next;return true;}
+function saveEntry(advance=true){
+  captureBody();if(!current||!current.body.trim())return false;
+  const body=current.body.trim(),editing=current.editTs!==null;let latest=read(KEYS.entries,[]);
+  if(!Array.isArray(latest)||latest.some(e=>!e||typeof e.body!=='string'||!Number.isFinite(e.ts))){entryReadError=true;storageNotice();return false;}
+  let next=latest.slice(),savedTs,conflict=false;
+  if(editing){const i=next.findIndex(e=>e.ts===current.editTs);if(i<0){toast('原作品已不存在，文字仍在草稿中');return false;}conflict=typeof current.editOriginalBody==='string'&&next[i].body!==current.editOriginalBody&&next[i].body!==body;if(!conflict){savedTs=next[i].ts;next[i]={...next[i],body,updatedAt:Date.now()};}}
+  if(!editing||conflict){savedTs=Math.max(Date.now(),...latest.map(e=>e.ts+1),0);next.push({kind:current.kind,given:current.given,from:current.from,rule:current.rules.join('；'),body,ts:savedTs,daily:current.daily,day:current.day});}
+  if(!writeEntries(next)){setDraftStatus('未能存下，正文已保留，请先复制',true);return false;}
+  if(!editing&&!days.includes(dateKey())){days=[...days,dateKey()];put(KEYS.days,days);}
+  stopTimer(true);current.body=body;current.editTs=savedTs;current.editOriginalBody=body;persistDraft();
+  if(advance){const wasDaily=current.daily;replaceCurrent(wasDaily?null:newFree(),wasDaily?'daily':'free',wasDaily);if(editing){showView('book');expandEntry(savedTs);}else{toast('存好了。这一段，留下了。');$('btnSave').classList.add('saved');setTimeout(()=>$('btnSave').classList.remove('saved'),850);}}
+  if(conflict)toast('原作在另一页被修改，已为你另存一段');return true;
+}
+function renderTimer(){const running=current&&current.timerEnd>0;$('timerStop').hidden=!running;$('timerLabel').textContent=running?'调整时间':'限时';if(running){const s=Math.max(0,Math.ceil((current.timerEnd-Date.now())/1000));$('timerStop').textContent=pad(Math.floor(s/60))+':'+pad(s%60);$('timerStop').setAttribute('aria-label','还剩 '+Math.ceil(s/60)+' 分钟，点击停止计时');}}
+function startTimer(minutes){if(!current||dailyOpen)return;stopTimer(true);current.timerEnd=Date.now()+minutes*60000;persistDraft();timerId=setInterval(tick,500);$('timerConfig').open=false;renderTimer();$('body').focus({preventScroll:true});}
+function tick(){if(confirmPending||!current||!current.timerEnd)return;if(Date.now()<current.timerEnd){renderTimer();return;}stopTimer(true);captureBody();if(!current.body.trim()){persistDraft();toast('时间到了。想继续写也可以。');return;}const oldView=view;if(saveEntry(true)){toast('时间到了，这一段已存进本子');if(oldView==='book')renderBook();}else{persistDraft();toast('时间到了，但未能保存，请先复制正文');}}
+function streak(){const set=new Set(days);let d=new Date(),n=0;if(!set.has(dateKey(d.getTime())))d.setDate(d.getDate()-1);while(set.has(dateKey(d.getTime()))){n++;d.setDate(d.getDate()-1);}return n;}
+function renderBook(){
+  $('stats').replaceChildren();const total=entries.reduce((n,e)=>n+charCount(e.body),0);[[entries.length,'留下的片段'],[total,'写过的字'],[new Set(days).size,'写作天数'],[streak(),'连续写作']].forEach(([n,label])=>{const d=document.createElement('div');d.className='stat';const b=document.createElement('strong'),s=document.createElement('span');b.textContent=n.toLocaleString('zh-CN');s.textContent=label;d.append(b,s);$('stats').append(d);});
+  $('empty').hidden=entries.length>0;$('btnRecall').disabled=!entries.length;$('entries').replaceChildren();
+  for(const entry of entries.slice().sort((a,b)=>b.ts-a.ts)){
+    const row=document.createElement('article');row.className='entry';row.id='entry-'+entry.ts;
+    const date=document.createElement('div');date.className='entry-date';date.textContent=dateLabel(entry.ts);const time=document.createElement('small');time.textContent=timeLabel(entry.ts)+(entry.daily?' · 今日':'');date.append(time);
+    const details=document.createElement('details'),summary=document.createElement('summary'),kind=document.createElement('p'),excerpt=document.createElement('p');kind.className='entry-kind';kind.textContent=(entry.kind||'片段')+' · '+charCount(entry.body)+' 字';excerpt.className='entry-excerpt';excerpt.textContent=entry.body;summary.setAttribute('aria-label','展开 '+dateLabel(entry.ts)+' 的片段');summary.append(kind,excerpt);
+    const body=document.createElement('p');body.className='entry-body';body.textContent=entry.body;
+    const context=document.createElement('div');context.className='entry-context';for(const text of [entry.given,entry.from||'',entry.rule?'限制：'+entry.rule:'']){if(text){const p=document.createElement('p');p.textContent=text;context.append(p);}}
+    const actions=document.createElement('div');actions.className='entry-actions';for(const [label,action,extra] of [['继续写',()=>editEntry(entry.ts),''],['存成图片',()=>makeImage(entry),''],['删除',()=>deleteEntry(entry.ts),'danger']]){const b=document.createElement('button');b.className='text-btn '+extra;b.textContent=label;b.onclick=action;actions.append(b);}
+    details.append(summary,body,context,actions);row.append(date,details);$('entries').append(row);
+  }
+  $('bookFirst').textContent=entries.length?'第一段写于 '+dateLabel(Math.min(...entries.map(e=>e.ts))):'';
+}
+function expandEntry(ts){const row=$('entry-'+ts);if(!row)return;row.querySelector('details').open=true;row.scrollIntoView({block:'nearest',behavior:'auto'});}
+async function editEntry(ts){if(!await protectDraft())return;const e=entries.find(x=>x.ts===ts);if(!e)return;replaceCurrent({kind:e.kind||'开头',given:e.given,from:e.from||'',rules:e.rule?e.rule.split('；'):[],body:e.body,daily:Boolean(e.daily),day:e.day||dateKey(e.ts),timerEnd:0,editTs:e.ts,editOriginalBody:e.body},e.daily?'daily':'free',false);showView('write');$('body').focus({preventScroll:true});}
+async function cancelEdit(){if(!current||current.editTs===null)return;const ts=current.editTs;if(dirty()&&(await ask('放下这次修改？','本子里仍保留修改前的内容。','放下修改'))!=='accept')return;replaceCurrent(newFree(),'free');showView('book');expandEntry(ts);}
+async function deleteEntry(ts){if(current&&current.editTs===ts){toast('这一段正在编辑，请先保存或取消编辑');return;}if(await ask('删掉这一段？','删除后无法撤销。','删掉')!=='accept')return;if(writeEntries(entries.filter(e=>e.ts!==ts))){renderBook();toast('这一段已删除');}}
+function renderManage(){
+  $('mine').replaceChildren();for(const kind of [...kinds,'限制']){(mine[kind]||[]).forEach((text,i)=>{const row=document.createElement('div');row.className='mine-row';const copy=document.createElement('div'),label=document.createElement('small'),value=document.createElement('span'),btn=document.createElement('button');copy.className='mine-copy';label.textContent=kind;value.textContent=text;copy.append(label,value);btn.className='quiet-btn';btn.textContent='移除';btn.onclick=async()=>{if(await ask('移除这句素材？',text,'移除')!=='accept')return;const next={...mine,[kind]:mine[kind].filter((_,j)=>j!==i)};if(put(KEYS.mine,next)){mine=next;invalidateQueue();renderManage();toast('素材已移除');}};row.append(copy,btn);$('mine').append(row);});}
+  $('resetBans').textContent='恢复被我拉黑的句子（'+banned.length+'）';$('resetMine').textContent='清空我加进池子的（'+Object.values(mine).filter(Array.isArray).reduce((n,a)=>n+a.length,0)+'）';
+}
+async function resetPart(part){
+  const configs={bans:['恢复被你隐藏的句子？','它们会重新进入题库。','恢复'],mine:['清空自定义题库？','只清除你加进池子的素材，写过的本子与当前草稿都会保留。','清空题库'],queue:['重新洗牌？','抽题顺序会重排，当前文字会保留。','重新洗牌'],defaults:['恢复默认题库？','清掉隐藏记录与自定义素材，限制恢复为 1 条。本子与当前草稿会保留。','恢复默认']};
+  if(await ask(...configs[part])!=='accept')return;
+  if(part==='bans'||part==='defaults'){if(!put(KEYS.ban,[]))return;banned=[];}
+  if(part==='mine'||part==='defaults'){if(!put(KEYS.mine,{}))return;mine={};}
+  if(part==='defaults'){ruleCount=1;put(KEYS.settings,{ruleCount});}
+  invalidateQueue();persistDraft();renderManage();if(dailyOpen)renderWrite();toast('题库已更新，当前文字还在');
+}
+function download(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},2000);}
+function exportText(){if(!entries.length){toast('本子里还没有存过');return;}const text=entries.slice().sort((a,b)=>a.ts-b.ts).map(e=>dateLabel(e.ts)+' '+timeLabel(e.ts)+'\n［'+e.kind+'］'+e.given+(e.from?'\n'+e.from:'')+'\n限制：'+e.rule+'\n\n'+e.body+'\n\n').join('···\n\n');download('起头-我的本子.txt',new Blob(['\uFEFF'+text],{type:'text/plain;charset=utf-8'}));}
+function exportBackup(){captureBody();const data={app:'qitou',version:4,exportedAt:Date.now(),entries,mine,banned,days,draft:{current,mode,dailyOpen,ruleCount}};download('起头-完整备份-'+dateKey()+'.json',new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));}
+function validateBackup(data){if(!data||data.app!=='qitou'||!Array.isArray(data.entries)||!data.entries.every(e=>e&&typeof e.body==='string'&&typeof e.given==='string'&&typeof e.kind==='string'&&typeof e.rule==='string'&&Number.isFinite(e.ts)))throw new Error('这不是有效的起头完整备份。');return data;}
+async function importBackup(file){if(!file)return;try{if(file.size>20*1024*1024)throw new Error('备份超过 20 MB，请使用较小的文件。');const data=validateBackup(JSON.parse(await file.text()));if(await ask('恢复这份本子？','将合并 '+data.entries.length+' 段作品与自定义题库；已有作品和当前草稿会保留。','合并恢复')!=='accept')return;const merged=entries.slice();for(const e of data.entries){if(!merged.some(x=>x.ts===e.ts&&x.body===e.body)){let ts=e.ts;while(merged.some(x=>x.ts===ts))ts++;merged.push({...e,ts});}}if(!writeEntries(merged))return;const nextMine={...mine};for(const kind of [...kinds,'限制']){const values=data.mine&&Array.isArray(data.mine[kind])?data.mine[kind].filter(x=>typeof x==='string'):[];nextMine[kind]=[...new Set([...(mine[kind]||[]),...values])];}if(put(KEYS.mine,nextMine))mine=nextMine;const nextDays=[...new Set([...days,...(Array.isArray(data.days)?data.days:[])].filter(x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)))];if(put(KEYS.days,nextDays))days=nextDays;const nextBans=[...new Set([...banned,...(Array.isArray(data.banned)?data.banned:[])].filter(x=>typeof x==='string'))];if(put(KEYS.ban,nextBans))banned=nextBans;invalidateQueue();const imported=validDraft(data.draft);if(imported&&imported.current&&imported.current.body.trim()){if(!current||!current.body.trim()){stopTimer(true);current={...imported.current,timerEnd:0};mode=current.daily?'daily':'free';dailyOpen=false;persistDraft();}else if(!entries.some(e=>e.body===imported.current.body&&e.given===imported.current.given)){const d=imported.current;writeEntries([...entries,{kind:d.kind,given:d.given,from:d.from,rule:d.rules.join('；'),body:d.body,ts:Math.max(Date.now(),...entries.map(e=>e.ts+1)),daily:d.daily,day:d.day}]);}}renderManage();if(view==='book')renderBook();else renderWrite();toast('已合并恢复');}catch(e){toast(e instanceof SyntaxError?'备份文件无法读取，请选择起头导出的 JSON。':e.message);}finally{$('importFile').value='';}}
+function wrapLines(ctx,text,maxWidth){const lines=[];for(const paragraph of text.split('\n')){if(!paragraph){lines.push('');continue;}let line='';for(const character of Array.from(paragraph)){if(line&&ctx.measureText(line+character).width>maxWidth){lines.push(line);line=character;}else line+=character;}lines.push(line);}return lines;}
+function makeImage(entry){
+  if(!entry.body.trim())return;const W=1080,P=88,c=document.createElement('canvas'),ctx=c.getContext('2d');if(!ctx){toast('当前浏览器不支持图片导出，请导出 TXT');return;}
+  const font=(n,mode=true)=>n+'px '+(mode==='li'?'"LiSu","STLiti","Noto Serif SC",serif':mode?'"Noto Serif SC",SimSun,"Songti SC",serif':'"DengXian","Noto Sans SC",sans-serif');ctx.font=font(36);const bodyLines=wrapLines(ctx,entry.body,W-2*P);ctx.font=font(28,'li');const givenLines=wrapLines(ctx,entry.given,W-2*P);ctx.font=font(23,'li');const sourceLines=entry.from?wrapLines(ctx,entry.from,W-2*P):[];const ruleLines=wrapLines(ctx,'限制：'+entry.rule,W-2*P-20);const maxBodyPerPage=65,pages=Math.max(1,Math.ceil(bodyLines.length/maxBodyPerPage));
+  for(let page=0;page<pages;page++){const part=bodyLines.slice(page*maxBodyPerPage,(page+1)*maxBodyPerPage);const H=330+givenLines.length*48+sourceLines.length*36+part.length*64+ruleLines.length*36;c.width=W;c.height=H;ctx.fillStyle='#F8F3E6';ctx.fillRect(0,0,W,H);ctx.fillStyle='#A33A2B';ctx.fillRect(P,65,28,3);ctx.font=font(27);ctx.fillStyle='#2A2721';ctx.fillText('起头',P+43,77);ctx.font=font(18,false);ctx.fillStyle='#6E6858';ctx.textAlign='right';ctx.fillText(dateLabel(entry.ts)+(pages>1?' / '+(page+1)+' · '+pages:''),W-P,77);ctx.textAlign='left';let y=143;ctx.font=font(28,'li');ctx.fillStyle='#6E6858';for(const line of givenLines){ctx.fillText(line,P,y);y+=48;}ctx.font=font(23,'li');for(const line of sourceLines){ctx.fillText(line,P,y);y+=36;}y+=25;ctx.fillStyle='#D9D0B8';ctx.fillRect(P,y,W-2*P,1);y+=60;ctx.font=font(36);ctx.fillStyle='#2A2721';for(const line of part){ctx.fillText(line,P,y);y+=64;}y+=25;ctx.fillStyle='#A33A2B';ctx.fillRect(P,y-20,2,Math.max(24,ruleLines.length*36-10));ctx.font=font(23,false);ctx.fillStyle='#6E6858';for(const line of ruleLines){ctx.fillText(line,P+18,y);y+=36;}ctx.font=font(22);ctx.fillText('写下去就好了',P,H-52);const number=page+1;try{c.toBlob(blob=>{if(blob)download('起头-'+entry.ts+(pages>1?'-'+number:'')+'.png',blob);else toast('图片生成失败，请先导出文字');},'image/png');}catch(e){toast('图片生成失败，请先导出文字');}}
+  if(pages>1)toast('长文已分为 '+pages+' 张图片，请允许多文件下载');
+}
+function exportCurrentImage(){captureBody();if(!current||!current.body.trim())return;makeImage({kind:current.kind,given:current.given,from:current.from,rule:current.rules.join('；'),body:current.body,ts:current.editTs||Date.now()});}
+function validDraft(d){if(!d||!['free','daily'].includes(d.mode))return null;if(d.current===null)return {...d,current:null};const c=d.current;if(!c||typeof c.body!=='string'||typeof c.given!=='string'||!Array.isArray(c.rules)||!c.rules.every(r=>typeof r==='string')||!kinds.includes(c.kind))return null;return {...d,current:{...c,from:typeof c.from==='string'?c.from:'',editTs:Number.isFinite(c.editTs)?c.editTs:null,timerEnd:Number.isFinite(c.timerEnd)?c.timerEnd:0,day:typeof c.day==='string'?c.day:dateKey(),daily:Boolean(c.daily)}};}
+$('body').addEventListener('input',()=>{captureBody();syncCount();persistDraft();});
+$('navWrite').onclick=()=>showView('write');$('brandHome').onclick=()=>showView('write');$('navBook').onclick=()=>showView('book');$('emptyGo').onclick=()=>{showView('write');if(!dailyOpen)$('body').focus();};
+$('modeFree').onclick=()=>changeMode('free');$('modeDaily').onclick=()=>changeMode('daily');$('btnAnother').onclick=another;$('mobileAnother').onclick=()=>{$('mobileTools').open=false;another();};
+$('btnBanGiven').onclick=banGiven;$('mobileBan').onclick=()=>{$('mobileTools').open=false;banGiven();};
+$('ruleCount').onchange=e=>changeRuleCount(e.target.value);$('dailyRuleCount').onchange=e=>changeRuleCount(e.target.value);
+$('btnSave').onclick=()=>saveEntry(true);$('cancelEdit').onclick=cancelEdit;$('btnImage').onclick=exportCurrentImage;$('mobileImage').onclick=()=>{$('mobileTools').open=false;exportCurrentImage();};
+document.querySelectorAll('[data-minutes]').forEach(b=>b.onclick=()=>startTimer(Number(b.dataset.minutes)));$('timerStop').onclick=()=>{stopTimer();toast('计时已停止，继续慢慢写');};
+$('btnRecall').onclick=()=>{if(!entries.length)return;const e=entries[Math.floor(Math.random()*entries.length)];document.querySelectorAll('.recall-highlight').forEach(x=>x.classList.remove('recall-highlight'));expandEntry(e.ts);$('entry-'+e.ts).classList.add('recall-highlight');};
+$('btnManage').onclick=()=>{renderManage();$('manageDialog').showModal();};
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());
+const openHelp=()=>{$('helpDialog').showModal();put('qitou.ob',1);};$('btnHelp').onclick=openHelp;$('btnAbout').onclick=openHelp;
+$('btnTheme').onclick=()=>setTheme(document.documentElement.dataset.theme==='night'?'day':'night');
+$('addForm').onsubmit=e=>{e.preventDefault();const kind=$('addKind').value,text=$('addText').value.trim();if(!text||![...kinds,'限制'].includes(kind))return;if((mine[kind]||[]).includes(text)){toast('这一句已经在池子里了');return;}const next={...mine,[kind]:[...(mine[kind]||[]),text]};if(put(KEYS.mine,next)){mine=next;invalidateQueue();$('addText').value='';renderManage();toast('加进去了，下次可能遇见');}};
+$('resetBans').onclick=()=>resetPart('bans');$('resetMine').onclick=()=>resetPart('mine');$('resetQueue').onclick=()=>resetPart('queue');$('resetDefaults').onclick=()=>resetPart('defaults');
+$('btnExport').onclick=exportText;$('btnBackup').onclick=exportBackup;$('importFile').onchange=e=>importBackup(e.target.files[0]);
+$('btnClear').onclick=async()=>{if(!entries.length){toast('本子还是空的');return;}if(current&&current.editTs!==null){toast('请先完成当前作品的编辑');return;}if(await ask('清空 '+entries.length+' 段作品？','这会删除本子里的全部作品，无法撤销。当前草稿仍会保留。','清空全部')!=='accept')return;if(writeEntries([])){renderBook();toast('本子已清空，草稿仍保留');}};
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter'&&!e.isComposing&&view==='write'&&!dailyOpen&&!document.querySelector('dialog[open]')){e.preventDefault();saveEntry(true);}});
+window.addEventListener('beforeunload',e=>{captureBody();if(!persistDraft()&&dirty()){e.preventDefault();e.returnValue='';}});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){captureBody();persistDraft();}else{tick();if(dailyOpen)renderDaily();}});
+window.addEventListener('storage',e=>{if(e.key===KEYS.entries){try{const data=JSON.parse(e.newValue||'[]');if(Array.isArray(data)){entries=data;if(view==='book')renderBook();}}catch{}}});
+const restored=validDraft(read(KEYS.draft,null));if(restored){current=restored.current;mode=restored.mode;dailyOpen=Boolean(restored.dailyOpen);if(current&&current.editTs!==null&&!entries.some(e=>e.ts===current.editTs))current.editTs=null;if([1,2,3].includes(restored.ruleCount))ruleCount=restored.ruleCount;}
+if(!current&&!dailyOpen)current=newFree();
+const preferred=read(KEYS.theme,null);setTheme(preferred==='night'||(!preferred&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'night':'day',false);
+renderWrite();if(restored&&current&&current.body)setDraftStatus('上次的草稿还在，接着写。');if(!storageOK)storageNotice();if(current&&current.timerEnd){timerId=setInterval(tick,500);tick();}
+/* 点空白处就关：dialog 点遮罩关，details 浮层点外面收起。不用再点一次按钮 */
+(function(){
+  document.querySelectorAll('dialog').forEach(function(d){
+    d.addEventListener('click',function(e){
+      if(e.target!==d)return;                       /* 点在里面的元素上，不管 */
+      var r=d.getBoundingClientRect();              /* 只有点在 dialog 矩形之外（即遮罩）才关 */
+      if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();
+    });
+  });
+  document.addEventListener('click',function(e){
+    document.querySelectorAll('details.config,details.mobile-tools').forEach(function(x){
+      if(x.open&&!x.contains(e.target))x.open=false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
