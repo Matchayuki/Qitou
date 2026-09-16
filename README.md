@@ -178,7 +178,9 @@ python -m http.server
 
 ## 🙋 作者
 
-**Matchayuki**
+<img src="https://avatars.githubusercontent.com/u/269142004?s=160&v=4" width="52" align="absmiddle" alt="Matchayuki"> **[@Matchayuki](https://github.com/Matchayuki)**
+
+写「起头」的人。
 
 ## 📄 许可
 
