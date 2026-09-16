@@ -6,12 +6,6 @@
 
 ### 写不出来的时候，你缺的往往不是才华，是一个开头。
 
-[![Open App](https://img.shields.io/badge/Open_App-▶-A33A2B?style=for-the-badge&labelColor=2A2721)](https://matchayuki.github.io/Qitou/)
-![Single File](https://img.shields.io/badge/Single_File-1%20HTML-2A2721?style=for-the-badge&labelColor=6E6858)
-![Prompts](https://img.shields.io/badge/Prompts-626-A33A2B?style=for-the-badge&labelColor=6E6858)
-![Tracking](https://img.shields.io/badge/Tracking-None-4A7C59?style=for-the-badge)
-![License](https://img.shields.io/badge/Offline-Ready-2A2721?style=for-the-badge&labelColor=6E6858)
-
 🎲 **626 条**起手句　·　🎯 **80 条**限制　·　⏱️ 限时 **5 / 10 / 20** 分钟　·　📓 本地本子　·　🖼️ 存成图片　·　🌙 夜间模式
 
 **👉 [matchayuki.github.io/Qitou](https://matchayuki.github.io/Qitou/) —— 点开就能写，不用注册，断网也能用。**
